@@ -40,7 +40,7 @@ function Translate(phrase)
 end
 
 local redzlib = {
-	Themes: table = {
+	Themes = {
 		Darker = {
 			["Color Hub 1"] = ColorSequence.new({
 				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(25, 25, 25)),
@@ -2773,3 +2773,4 @@ function redzlib:MakeWindow(Configs)
 end
 
 return redzlib
+
