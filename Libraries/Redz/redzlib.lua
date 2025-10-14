@@ -31,7 +31,7 @@ end
 
 local lang: string? = GetLocalLanguage()
 
-function Translate(phrase)
+function Translate(phrase: string):(string)
     if lang and Translations[lang] and Translations[lang] and Translations[lang][phrase] then
         return Translations[lang][phrase]
     else
@@ -1040,7 +1040,7 @@ local Funcs = {} do
 		function Connected:Disconnect()
 			if self.Connected then
 				table.remove(ConnectedFuncs, table.find(ConnectedFuncs, self.Function))
-				self.Connected: boolean = false
+				self.Connected = false
 			end
 		end
 		
@@ -2773,4 +2773,3 @@ function redzlib:MakeWindow(Configs)
 end
 
 return redzlib
-
