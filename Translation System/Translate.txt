@@ -172,10 +172,11 @@
 	
 	for _, Lang in pairs(Languages) do
 	    local success, data = pcall(function()
-	        return loadstring(game:HttpGet("https://raw.githubusercontent.com/agenext/Translations/refs/heads/main/SomeoneHub/Languages/"..Lang..".lua"))()
+	        return loadstring(game:HttpGet("https://raw.githubusercontent.com/SomeoneScripts/Main/refs/heads/main/Translation%20System/Languages/"..Lang..".lua"))()
 	    end)
 	    Translations[Lang] = success and data or {}
 	end
 	for Country, Lang in pairs(CountryToLang) do
 	    Translations[Country] = Translations[Lang]
 	end
+
