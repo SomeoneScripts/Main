@@ -32,8 +32,8 @@ end
 local lang: string? = GetLocalLanguage()
 
 function Translate(phrase: string):(string)
-    if lang and Translations[lang] and Translations[lang][tostring(game.GameId)] and Translations[lang][tostring(game.GameId)][phrase] then
-        return Translations[lang][tostring(game.GameId)][phrase]
+    if lang and Translations[lang] and Translations[lang][phrase] then
+        return Translations[lang][phrase]
     else
         return phrase
     end
@@ -61,7 +61,7 @@ local redzlib = {
 			}),
 			["Color Hub 2"] = Color3.fromRGB(45, 45, 45),
 			["Color Stroke"] = Color3.fromRGB(65, 65, 65),
-			["Color Theme"] = Color3.fromRGB(65, 150, 255),
+			["Color Theme"] = Color3.fromRGB(150, 150, 150),
 			["Color Text"] = Color3.fromRGB(245, 245, 245),
 			["Color Dark Text"] = Color3.fromRGB(190, 190, 190)
 		},
@@ -96,7 +96,7 @@ local redzlib = {
 	Save = {
 		UISize = {550, 380},
 		TabSize = 160,
-		Theme = "Orange"
+		Theme = "Dark"
 	},
 	Settings = {},
 	Connection = {},
