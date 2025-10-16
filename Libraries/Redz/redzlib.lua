@@ -1935,27 +1935,7 @@ function redzlib:MakeWindow(Configs)
 		function Tab:Destroy() TabSelect:Destroy() Container:Destroy() end
 		
 		function Tab:AddSection(Configs)
-			local SectionName = Configs[1] or Configs.Name or Configs.Title or Configs.Section or ""
-			local TIcon = Configs[2] or Configs.Icon or Configs.Image or ""
-			TIcon = redzlib:GetIcon(TIcon)
-			if not TIcon:find("rbxassetid://") or TIcon:gsub("rbxassetid://", ""):len() < 6 then
-				TIcon = false
-			end
-			local SectionFrame = Create("Frame", Container, {
-				Size = UDim2.new(1, 0, 0, 20),
-				BackgroundTransparency = 1,
-				Name = "Option"
-			})
-			local Holder = Create("Frame", SectionFrame, {
-				BackgroundTransparency = 1,
-				Size = UDim2.new(1, 0, 1, 0)
-			})
-			local Layout = Create("UIListLayout", Holder, {
-				FillDirection = "Horizontal",
-				VerticalAlignment = "Center",
-				SortOrder = "LayoutOrder",
-				Padding = UDim.new(0, 5)
-			})
+			local SectionName = Configs[1] or Configs.Name or Configs.Title or Configs.Section or "Section"
 			local SectionLabel = InsertTheme(Create("TextLabel", Holder, {
 				Font = "GothamBold",
 				Text = Translate(SectionName),
@@ -1966,12 +1946,6 @@ function redzlib:MakeWindow(Configs)
 				TextTruncate = "AtEnd",
 				TextSize = 14,
 				TextXAlignment = "Left"
-			}), "Text")
-			local LabelIcon = InsertTheme(Create("ImageLabel", Holder, {
-				Size = UDim2.new(0, 15, 0, 15),
-				Image = TIcon or "",
-				BackgroundTransparency = 1,
-				ImageTransparency = 0
 			}), "Text")
 			local Section = {}
 			table.insert(redzlib.Options, {type = "Section", Name = SectionName, func = Section})
@@ -2773,3 +2747,4 @@ function redzlib:MakeWindow(Configs)
 end
 
 return redzlib
+
