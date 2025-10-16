@@ -1948,7 +1948,7 @@ function redzlib:MakeWindow(Configs)
 				Size = UDim2.new(1, -25, 1, 0),
 				Position = UDim2.new(0, 5),
 				BackgroundTransparency = 1,
-				TextTruncate = "X",
+				TextTruncate = "AtEnd",
 				TextSize = 14,
 				TextXAlignment = "Left"
 			}), "Text")
