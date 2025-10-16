@@ -2660,17 +2660,6 @@ function redzlib:MakeWindow(Configs)
 				BackgroundTransparency = 1
 			})
 			
-			local InviteLabel = Create("TextLabel", InviteHolder, {
-				Size = UDim2.new(1, 0, 0, 15),
-				Position = UDim2.new(0, 5),
-				TextColor3 = Color3.fromRGB(40, 150, 255),
-				Font = "FredokaOne", --Enum.Font.GothamBold,
-				TextXAlignment = "Left",
-				BackgroundTransparency = 1,
-				TextSize = 10,
-				Text = Invite
-			})
-			
 			local FrameHolder = InsertTheme(Create("Frame", InviteHolder, {
 				Size = UDim2.new(1, 0, 0, 65),
 				AnchorPoint = Vector2.new(0, 1),
