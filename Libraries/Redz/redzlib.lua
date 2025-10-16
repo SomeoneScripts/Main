@@ -32,8 +32,8 @@ end
 local lang: string? = GetLocalLanguage()
 
 function Translate(phrase: string):(string)
-    if lang and Translations[lang] and Translations[lang] and Translations[lang][phrase] then
-        return Translations[lang][phrase]
+    if lang and Translations[lang] and Translations[lang][tostring(game.GameId)] and Translations[lang][[tostring(game.GameId)]phrase] then
+        return Translations[lang][tostring(game.GameId)][phrase]
     else
         return phrase
     end
@@ -1629,8 +1629,8 @@ function redzlib:MakeWindow(Configs)
 	local Window, FirstTab = {}, false
 	function Window:CloseBtn()
 		local Dialog = Window:Dialog({
-			Title = "Close",
-			Text = "You Want Close Ui?",
+			Title = "Close?",
+			Text = "You Won't Be Able To Open It Again",
 			Options = {
 				{"Confirm", function()
 					ScreenGui:Destroy()
@@ -1943,7 +1943,7 @@ function redzlib:MakeWindow(Configs)
 			})
 			local SectionLabel = InsertTheme(Create("TextLabel", SectionFrame, {
 				Font = "FredokaOne", --Enum.Font.FredokaOne,
-				Text = SectionName,
+				Text = Translate(SectionName),
 				TextColor3 = Theme["Color Text"],
 				Size = UDim2.new(1, -25, 1, 0),
 				Position = UDim2.new(0, 5),
@@ -2654,19 +2654,6 @@ function redzlib:MakeWindow(Configs)
 			local Logo = Configs[2] or Configs.Logo or ""
 			local Invite = Configs[3] or Configs.Invite or ""
 			
-			local InviteHolder = Create("Frame", Container, {
-				Size = UDim2.new(1, 0, 0, 80),
-				Name = "Option",
-				BackgroundTransparency = 1
-			})
-			
-			local FrameHolder = InsertTheme(Create("Frame", InviteHolder, {
-				Size = UDim2.new(1, 0, 0, 65),
-				AnchorPoint = Vector2.new(0, 1),
-				Position = UDim2.new(0, 0, 1),
-				BackgroundColor3 = Theme["Color Hub 2"]
-			}), "Frame")Make("Corner", FrameHolder)
-			
 			local ImageLabel = Create("ImageLabel", FrameHolder, {
 				Size = UDim2.new(0, 30, 0, 30),
 				Position = UDim2.new(0, 7, 0, 7),
@@ -2702,7 +2689,7 @@ function redzlib:MakeWindow(Configs)
 				Size = UDim2.new(1, -14, 0, 16),
 				AnchorPoint = Vector2.new(0.5, 1),
 				Position = UDim2.new(0.5, 0, 1, -7),
-				Text = "Join",
+				Text = Translate("Copy Invitation"),
 				Font = "FredokaOne", --Enum.Font.GothamBold,
 				TextSize = 12,
 				TextColor3 = Color3.fromRGB(220, 220, 220),
@@ -2716,12 +2703,12 @@ function redzlib:MakeWindow(Configs)
 				
 				ClickDelay = true
 				SetProps(JoinButton, {
-					Text = "Copied to Clipboard",
+					Text = Translate("Copied To Clipboard"),
 					BackgroundColor3 = Color3.fromRGB(100, 100, 100),
 					TextColor3 = Color3.fromRGB(150, 150, 150)
 				})task.wait(5)
 				SetProps(JoinButton, {
-					Text = "Join",
+					Text = Translate("Copy Invitation"),
 					BackgroundColor3 = Color3.fromRGB(50, 150, 50),
 					TextColor3 = Color3.fromRGB(220, 220, 220)
 				})ClickDelay = false
