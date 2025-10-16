@@ -1935,29 +1935,25 @@ function redzlib:MakeWindow(Configs)
 		function Tab:Destroy() TabSelect:Destroy() Container:Destroy() end
 		
 		function Tab:AddSection(Configs)
-			local SectionName = Configs[1] or Configs.Name or Configs.Title or Configs.Section or ""
+			local SectionName = type(Configs) == "string" and Configs or Configs[1] or Configs.Name or Configs.Title or Configs.Section
 			local SectionFrame = Create("Frame", Container, {
 				Size = UDim2.new(1, 0, 0, 20),
 				BackgroundTransparency = 1,
 				Name = "Option"
 			})
-			local Holder = Create("Frame", SectionFrame, {
-				BackgroundTransparency = 1,
-				Size = UDim2.new(1, 0, 1, 0)
-			})
-			local SectionLabel = InsertTheme(Create("TextLabel", Holder, {
-				Font = "GothamBold",
-				Text = Translate(SectionName),
+			local SectionLabel = InsertTheme(Create("TextLabel", SectionFrame, {
+				Font = Enum.Font.FredokaOne,
+				Text = SectionName,
 				TextColor3 = Theme["Color Text"],
-				AutomaticSize = "X",
-				Size = UDim2.new(0, 0, 1, 0),
+				Size = UDim2.new(1, -25, 1, 0),
+				Position = UDim2.new(0, 5),
 				BackgroundTransparency = 1,
-				TextTruncate = "AtEnd",
+				TextTruncate = "X",
 				TextSize = 14,
 				TextXAlignment = "Left"
 			}), "Text")
 			local Section = {}
-			table.insert(redzlib.Options, {type = "Section", Name = SectionName, func = Section})
+			table.insert(redzlib.Options, {type = "Section", Name = Translate(SectionName), func = Section})
 			function Section:Visible(Bool)
 				if Bool == nil then SectionFrame.Visible = not SectionFrame.Visible return end
 				SectionFrame.Visible = Bool
