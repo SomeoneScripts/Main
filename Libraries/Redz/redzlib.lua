@@ -32,7 +32,7 @@ end
 local lang: string? = GetLocalLanguage()
 
 function Translate(phrase: string):(string)
-    if lang and Translations[lang] and Translations[lang][phrase] then
+    if lang and Translations and Translations[lang] and Translations[lang][phrase] then
         return Translations[lang][phrase]
     else
         return phrase
@@ -1953,7 +1953,7 @@ function redzlib:MakeWindow(Configs)
 				TextXAlignment = "Left"
 			}), "Text")
 			local Section = {}
-			table.insert(redzlib.Options, {type = "Section", Name = Translate(SectionName), func = Section})
+			table.insert(redzlib.Options, {type = "Section", Name = SectionName, func = Section})
 			function Section:Visible(Bool)
 				if Bool == nil then SectionFrame.Visible = not SectionFrame.Visible return end
 				SectionFrame.Visible = Bool
