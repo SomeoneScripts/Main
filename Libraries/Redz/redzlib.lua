@@ -30,7 +30,7 @@ function GetLocalLanguage(): string?
 end
 
 local lang: string? = GetLocalLanguage()
-
+print(lang)
 function Translate(phrase: string):(string)
     if lang and Translations and Translations[lang] and Translations[lang][phrase] then
         return Translations[lang][phrase]
@@ -2741,3 +2741,4 @@ function redzlib:MakeWindow(Configs)
 end
 
 return redzlib
+
