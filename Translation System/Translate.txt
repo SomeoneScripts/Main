@@ -174,9 +174,10 @@
 	    local success, data = pcall(function()
 	        return loadstring(game:HttpGet("https://raw.githubusercontent.com/SomeoneScripts/Main/refs/heads/main/Translation%20System/Languages/"..Lang..".lua"))()
 	    end)
-	    Translations[Lang] = success and data or {}
+		if success and data then
+		    Translations[Lang] =  data
+		end
 	end
 	for Country, Lang in pairs(CountryToLang) do
 	    Translations[Country] = Translations[Lang]
 	end
-
