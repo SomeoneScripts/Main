@@ -20,7 +20,7 @@ function GetLocalLanguage(): string?
             return Settings["Language"]
         end
         local success, country = pcall(function()
-            return LocalizationService:GetCountryRegionForPlayerAsync(LocalPlayer)
+            return LocalizationService:GetCountryRegionForPlayerAsync(Player)
         end)
         if success and country and Translations[country] then
             return country
@@ -2741,5 +2741,3 @@ function redzlib:MakeWindow(Configs)
 end
 
 return redzlib
-
-
