@@ -1,5 +1,5 @@
 return {
-	["994732206"] = {
+	["994732206"] = { -- Blox Fruits
 		-- Others --
 		["Someone Hub | Blox Fruits"] = "Someone Hub | Blox Fruits",
 		["By Someone"] = "Por Someone",
@@ -104,5 +104,21 @@ return {
 		-- Race --
 		-- Shop --
 		-- Visual --
+	},
+	["7326934954"] = { -- 99 Nights In The Forest
+		-- Others --
+		["Someone Hub | 99 Nights In The Forest"] = "Someone Hub | 99 Noites Na Floresta",
+		["By Someone"] = "Por Someone",
+		["Information"] = "Informações",
+		["Social Media"] = "Redes Sociais",
+		["Script Community; There You Can Find People And More Information About The Script"] = "Comunidade Do Script; Lá Você Pode Encontrar Pessoas E Mais Informações Sobre O Script",
+		["Copied To Clipboard"] = "Copiado Para A Área De Transferência",
+		["Close?"] = "Fechar?",
+		["You Won't Be Able To Open It Again"] = "Você Não Conseguirá Abrir Novamente",
+		["Confirm"] = "Confirmar",
+		["Cancel"] = "Cancelar",
+		["Copy Invitation"] = "Copiar Convite",
+		["Player"] = "Jogador",
+		["Visual"] = "Visual",
 	},
 }
