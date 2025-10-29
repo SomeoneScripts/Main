@@ -169,10 +169,26 @@
 	    -- Vietnamese
 	    ["VN"] = "Vietnamese", -- Vietnã
 	}
-	
+
+function GetSafeLoadstring(url)
+	    local request = http.request({
+	        Url = url,
+	        Method = "GET",
+	        Headers = {
+	            ["User-Agent"] = "Mozilla/5.0"
+	        }
+	    })
+	    if request.StatusCode == 200 then
+	        return loadstring(request.Body)
+	    else
+	        warn("Erro: "..request.StatusCode)
+	        return nil
+	    end
+	end
+
 	for _, Lang in pairs(Languages) do
 	    local success, data = pcall(function()
-	        return loadstring(game:HttpGet("https://raw.githubusercontent.com/SomeoneScripts/Main/refs/heads/main/Translation%20System/Languages/"..Lang..".lua"))()
+	        return GetSafeLoadstring("https://raw.githubusercontent.com/SomeoneScripts/Main/refs/heads/main/Translation%20System/Languages/"..Lang..".lua")()
 	    end)
 		if success and data then
 		    Translations[Lang] =  data
@@ -180,4 +196,5 @@
 	end
 	for Country, Lang in pairs(CountryToLang) do
 	    Translations[Country] = Translations[Lang]
+
 	end
