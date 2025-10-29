@@ -12,23 +12,7 @@ local CoreGui: ScreenGui | CoreGui = (gethui and gethui()) or game:GetService("C
 
 local LocalizationService: LocalizationService = game:GetService("LocalizationService")
 
-function GetSafeLoadstring(url)
-	    local request = http.request({
-	        Url = url,
-	        Method = "GET",
-	        Headers = {
-	            ["User-Agent"] = "Mozilla/5.0"
-	        }
-	    })
-	    if request.StatusCode == 200 then
-	        return loadstring(request.Body)
-	    else
-	        warn("Erro: "..request.StatusCode)
-	        return nil
-	    end
-end
-
-GetSafeLoadstring("https://raw.githubusercontent.com/SomeoneScripts/Main/refs/heads/main/Translation%20System/Translate.txt")()
+loadstring(game:HttpGet("https://cdn.jsdelivr.net/gh/SomeoneScripts/Main@main/Translation%20System/Translate.txt"))()
 
 function GetLocalLanguage(): string?
     if Settings and Settings["Translate"] then
@@ -2757,4 +2741,3 @@ function redzlib:MakeWindow(Configs)
 end
 
 return redzlib
-
