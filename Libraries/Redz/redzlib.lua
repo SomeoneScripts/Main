@@ -1968,7 +1968,7 @@ function redzlib:MakeWindow(Configs)
 			end
 			return Section
 		end
-
+		
 		function Tab:AddParagraph(Configs)
 			local PName = Configs[1] or Configs.Title or "Paragraph"
 			local PDesc = Configs[2] or Configs.Text or ""
@@ -2456,7 +2456,7 @@ function redzlib:MakeWindow(Configs)
 			local Increase = Configs[4] or Configs.Increase or 1
 			local Callback = Funcs:GetCallback(Configs, 6)
 			local Flag = Configs[7] or Configs.Flag or false
-			local Default = Configs[5] or Configs.Default or 25
+			local Default = Configs[5] or (typeof(Configs.Default) ~= nil and Configs.Default) or 25
 			if CheckFlag(Flag) then Default = GetFlag(Flag) end
 			Min, Max = Min / Increase, Max / Increase
 			
@@ -2613,7 +2613,8 @@ function redzlib:MakeWindow(Configs)
 				TextColor3 = Theme["Color Text"],
 				ClearTextOnFocus = TClearText,
 				PlaceholderText = Translate(TPlaceholderText),
-				Text = ""
+				Text = TDefault,
+				RichText = true,
 			}), "Text")
 			
 			local Pencil = Create("ImageLabel", SelectedFrame, {
