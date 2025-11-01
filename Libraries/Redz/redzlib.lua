@@ -33,19 +33,9 @@ local lang: string? = GetLocalLanguage()
 
 function Translate(Phrase)
     local GameId = tostring(game.GameId)
-    local LangTable = Translations and Translations[lang] and Translations[lang][GameId]
-    if LangTable and LangTable[Phrase] then
-        return LangTable[Phrase]
-    else
-        for Key, Value in pairs(LangTable or {}) do
-            local Pattern = Key:gsub("<number>", "(%%d+)")
-            local Match = string.match(Phrase, Pattern)
-            if Match then
-                return Value:gsub("<number>", Match)
-            end
-        end
-        return Phrase
-    end
+    local LangTable = Translations[lang] and Translations[lang][GameId]
+    if not LangTable then return Phrase end
+    return LangTable[Phrase] or Phrase
 end
 
 local redzlib = {
