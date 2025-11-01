@@ -1979,21 +1979,14 @@ function redzlib:MakeWindow(Configs)
 			function Paragraph:Visible(...) Funcs:ToggleVisible(Frame, ...) end
 			function Paragraph:Destroy() Frame:Destroy() end
 			function Paragraph:SetTitle(Val)
-				LabelFunc:SetTitle(GetStr(Val))
+				LabelFunc:SetTitle(GetStr(Translate(Val)))
 			end
 			function Paragraph:SetDesc(Val)
-				LabelFunc:SetDesc(GetStr(Val))
-			end
-			function Paragraph:Set(Val1, Val2)
-				if Val1 and Val2 then
-					LabelFunc:SetTitle(GetStr(Val1))
-					LabelFunc:SetDesc(GetStr(Val2))
-				elseif Val1 then
-					LabelFunc:SetDesc(GetStr(Val1))
-				end
+				LabelFunc:SetDesc(GetStr(Translate(Val)))
 			end
 			return Paragraph
 		end
+		
 		function Tab:AddButton(Configs)
 			local BName = Configs[1] or Configs.Name or Configs.Title or "Button!"
 			local BDescription = Configs.Desc or Configs.Description or ""
