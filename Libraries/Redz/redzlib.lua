@@ -31,11 +31,20 @@ end
 
 local lang: string? = GetLocalLanguage()
 
-function Translate(phrase: string):(string)
-    if lang and Translations and Translations[lang] and Translations[lang][tostring(game.GameId)] and Translations[lang][tostring(game.GameId)][phrase] then
-        return Translations[lang][tostring(game.GameId)][phrase]
+function Translate(Phrase)
+    local GameId = tostring(game.GameId)
+    local LangTable = Translations and Translations[lang] and Translations[lang][GameId]
+    if LangTable and LangTable[Phrase] then
+        return LangTable[Phrase]
     else
-        return phrase
+        for Key, Value in pairs(LangTable or {}) do
+            local Pattern = Key:gsub("<number>", "(%%d+)")
+            local Match = string.match(Phrase, Pattern)
+            if Match then
+                return Value:gsub("<number>", Match)
+            end
+        end
+        return Phrase
     end
 end
 
