@@ -172,7 +172,7 @@
 	
 	for _, Lang in pairs(Languages) do
 	    local success, data = pcall(function()
-	        return loadstring(game:HttpGet("https://cdn.jsdelivr.net/gh/SomeoneScripts/Main@main/Translation%20System/Languages/"..Lang..".lua"))()
+	        return loadstring(game:HttpGet("https://rawcdn.githack.com/SomeoneScripts/Main/refs/heads/main/Translation%20System/Languages/"..Lang..".lua"))()
 	    end)
 		if success and data then
 		    Translations[Lang] =  data
