@@ -12,7 +12,7 @@ local CoreGui: ScreenGui | CoreGui = (gethui and gethui()) or game:GetService("C
 
 local LocalizationService: LocalizationService = game:GetService("LocalizationService")
 
-loadstring(game:HttpGet("https://rawcdn.githack.com/SomeoneScripts/Main/refs/heads/main/Translation%20System/Translate.txt"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/SomeoneScripts/Main/refs/heads/main/Translation%20System/Translate.txt"))()
 
 function GetLocalLanguage(): string?
     if Settings and Settings["Translate"] then
