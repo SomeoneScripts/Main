@@ -6,6 +6,7 @@ return {
 		["Server Info"] = "Informações Do Servidor",
 		["Stats"] = "Estatísticas",
 		["Main"] = "Principal",
+		["Quests/Items"] = "Missões/Itens",
 		["Sea Events"] = "Eventos Marítimos",
 		["Fishery"] = "Pesca",
 		["Fruits"] = "Frutas",
@@ -34,6 +35,14 @@ return {
 		["Mob Leader"] = "Lider Da Máfia",
 		["Vice Admiral"] = "Vice-almirante",
 		["Warden"] = "Guarda",
+		["Chief Warden"] = "",
+		["Cyborg"] = "",
+		["Fishman Lord"] = "",
+		["Magma Admiral"] = "",
+		["Saber Expert"] = "",
+		["Swan"] = "",
+		["Thunder God"] = "",
+		["Wysper"] = "",
 		-- Social --
 		["Script Community; There You Can Find People And More Information About The Script"] = "Comunidade Do Script; Lá Você Pode Encontrar Pessoas E Mais Informações Sobre O Roteiro.",
 		-- Settings --
@@ -69,6 +78,12 @@ return {
 		["Material"] = "Material",
 			["Select Material"] = "Selecione O Material",
 			["Farm Material"] = "Farmar Material",
+		["Bones"] = "Ossos",
+			["Farm Bones"] = "Farmar Ossos",
+			["Farm Shinigami Boss"] = "Farmar O Chefe Deus Da Morte",
+			["Trade Bones"] = "Trocar Ossos",
+		-- Quests --
+		
 		-- SeaEvent --
 		
 		-- Fish --
