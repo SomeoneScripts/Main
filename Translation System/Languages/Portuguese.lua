@@ -15,6 +15,25 @@ return {
 		["Shop"] = "Comprar",
 		["Visual"] = "Visual",
 		["Miscellaneous"] = "Diversos",
+		["Angel Wings"] = "Asas De Anjo",
+		["Fish Tail"] = "Cauda De Peixe",
+		["Leather & Scrap Metal"] = "Couro E Sucata",
+		["Magma Ore"] = "Minério De Magma",
+		["Mystic Droplet"] = "Gota Mística",
+		["Radioactive Material"] = "Material Radioativo",
+		["Vampire Fang"] = "Presa De Vampiro",
+		["Conjured Cocoa"] = "Cacau Conjurado",
+		["Demonic Wisp"] = "Essência Demoníaca",
+		["Dragon Scale"] = "Escama De Dragão",
+		["Gunpowder"] = "Pólvora",
+		["Mini Tusk"] = "Presinha",
+		["Nightmare Catcher"] = "Apanhador De Pesadelos",
+		["The Gorilla King"] = "O Rei Gorila",
+		["Chef"] = "Chefe",
+		["The Saw"] = "A Serra",
+		["Mob Leader"] = "Lider Da Máfia",
+		["Vice Admiral"] = "Vice-almirante",
+		["Warden"] = "Guarda",
 		-- Social --
 		["Script Community; There You Can Find People And More Information About The Script"] = "Comunidade Do Script; Lá Você Pode Encontrar Pessoas E Mais Informações Sobre O Roteiro.",
 		-- Settings --
@@ -45,6 +64,11 @@ return {
 			["Change Server"] = "Trocar De Servidor",
 		["Chests"] = "Baús",
 			["Collect Chests"] = "Coletar Baús",
+		["Ectoplasms"] = "Ectoplasmas",
+			["Farm Ectoplasms"] = "Farmar Ectoplasmas",
+		["Material"] = "Material",
+			["Select Material"] = "Selecione O Material",
+			["Farm Material"] = "Farmar Material",
 		-- SeaEvent --
 		
 		-- Fish --
