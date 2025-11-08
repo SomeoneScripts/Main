@@ -2021,6 +2021,7 @@ function redzlib:MakeWindow(Configs)
 			end
 			return Button
 		end
+		
 		function Tab:AddToggle(Configs)
 			local TName = Configs[1] or Configs.Name or Configs.Title or "Toggle"
 			local TDesc = Configs.Desc or Configs.Description or ""
@@ -2099,10 +2100,10 @@ function redzlib:MakeWindow(Configs)
 		function Tab:AddDropdown(Configs)
 			local DName = Configs[1] or Configs.Name or Configs.Title or "Dropdown"
 			local DDesc = Configs.Desc or Configs.Description or ""
-			local DOptions = Configs[2] or Configs.Options or {}
+			local DOptions = Configs[2] or Configs.Options or Configs.Values or {}
 			local OpDefault = Configs[3] or Configs.Default or {}
 			local Flag = Configs[5] or Configs.Flag or false
-			local DMultiSelect = Configs.MultiSelect or false
+			local DMultiSelect = Configs.MultiSelect or Configs.Multi or false
 			local Callback = Funcs:GetCallback(Configs, 4)
 			
 			local Button, LabelFunc = ButtonFrame(Container, Translate(DName), Translate(DDesc), UDim2.new(1, -180))
@@ -2261,7 +2262,7 @@ function redzlib:MakeWindow(Configs)
 						end
 						ActiveLabel.Text = #list > 0 and table.concat(list, ", ") or "..."
 					else
-						ActiveLabel.Text = tostring(Selected or "...")
+						ActiveLabel.Text = tostring(Translate(Selected) or "...")
 					end
 				end
 				
