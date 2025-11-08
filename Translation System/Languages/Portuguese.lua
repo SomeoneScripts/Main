@@ -82,6 +82,10 @@ return {
 			["Farm Bones"] = "Farmar Ossos",
 			["Farm Shinigami Boss"] = "Farmar O Chefe Deus Da Morte",
 			["Trade Bones"] = "Trocar Ossos",
+		["Elite Hunters"] = "Caçadores De Elite",
+			["Elite Hunter Spawned"] = "Caçador De Elite Gerado",
+			["Progress"] = "Progresso",
+			["Time Until Next Spawn"] = "Tempo Até O Próximo Nascer",
 		-- Quests --
 		
 		-- SeaEvent --
