@@ -16,25 +16,35 @@ return {
 		["Visual"] = "Visual",
 		["Miscellaneous"] = "Diversos",
 		-- Social --
-		["Script Community; There You Can Find People And More Information About The Script"] = "Script Community; There You Can Find People And More Information About The Script",
+		["Script Community; There You Can Find People And More Information About The Script"] = "Comunidade Do Script; Lá Você Pode Encontrar Pessoas E Mais Informações Sobre O Roteiro.",
 		-- Settings --
 		["Main Settings"] = "Configurações Principais",
-		["Select Tool Tip"] = "Selecione O Tipo De Ferramenta",
-		["Tween Speed"] = "Velocidade De Vôo",
-		["Bring Enemies"] = "Trazer Inimigos",
-		["Auto Buso"] = "Buso Haki Automático",
-		["Auto Attack"] = "Ataque Automático",
+			["Select Tool Tip"] = "Selecione O Tipo De Ferramenta",
+			["Tween Speed"] = "Velocidade De Vôo",
+			["Bring Enemies"] = "Trazer Inimigos",
+			["Auto Buso"] = "Buso Haki Automático",
+			["Auto Attack"] = "Ataque Automático",
 		-- Stats --
 		["Auto Stats"] = "Estatísticas Automáticas",
-		["Select Where To Add"] = "Selecione Onde Adicionar",
-		["Select Points Amount"] = "Selecione A Quantidade De Pontos",
+			["Select Where To Add"] = "Selecione Onde Adicionar",
+			["Select Points Amount"] = "Selecione A Quantidade De Pontos",
 		-- Information --
 		
 		-- Main --
 		["Main Farm"] = "Farm Principal",
-		["Farm Level"] = "Farmar Nível",
-		["Farm Nearest"] = "Farmar Inimigos Próximos",
-		["Farm Sky Enemies"] = "Farmar Inimigos Dos Céus",
+			["Farm Level"] = "Farmar Nível",
+			["Farm Nearest"] = "Farmar Inimigos Próximos",
+			["Farm Sky Enemies"] = "Farmar Inimigos Dos Céus",
+			["Factory Raid"] = "Ataque A Fábrica",
+			["Pirate Raid"] = "Ataque Os Piratas",
+		["Bosses"] = "Chefes",
+			["Update Bosses List"] = "Atualizar Lista De Chefes",
+			["Select Boss"] = "Selecione Um Chefe",
+			["Defeat Selected Boss"] = "Derrotar O Chefe Selecionado",
+			["Defeat All Bosses"] = "Derrotar Todos Os Chefes",
+			["Change Server"] = "Trocar De Servidor",
+		["Chests"] = "Baús",
+			["Collect Chests"] = "Coletar Baús",
 		-- SeaEvent --
 		
 		-- Fish --
@@ -44,8 +54,8 @@ return {
 		-- Teleport --
 		["World"] = "Mundo",
 		["Island"] = "Ilhas",
-		["Select Island"] = "Selecione A Ilha",
-		["Go To Island"] = "Vá Para A Ilha",
+			["Select Island"] = "Selecione A Ilha",
+			["Go To Island"] = "Vá Para A Ilha",
 		-- Player --
 		
 		-- Race --
