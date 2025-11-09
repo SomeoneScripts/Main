@@ -95,19 +95,39 @@ return {
 		-- Fish --
 		
 		-- Fruits --
-		
+			["Random Fruits"] = "Frutas Aleatórias",
+			["Collect Fruits"] = "Coletar Frutas",
+			["Store Fruits"] = "Armazenar Frutas",
 		-- Teleport --
 		["World"] = "Mundo",
 		["Island"] = "Ilhas",
 			["Select Island"] = "Selecione A Ilha",
 			["Go To Island"] = "Vá Para A Ilha",
 		-- Player --
-		
+			["Select Walk Speed"] = "Selecione A Velocidade De Caminhada",
+			["Change Speed"] = "Alterar Velocidade",
+			["Select Dash Distance"] = "Selecione Comprimento Do Dash",
+			["Change Dash Length"] = "Alterar Comprimento Do Dash",
+			["Infinite Jump"] = "Pulo Infinito",
+			["Walk On Water"] = "Andar Sobre A Água",
+		["Aimbot"] = "Aimbot",
+			["Aimbot Nearest"] = "Aimbot Mais Próximo",
+			["Ignore Enemies"] = "Ignorar inimigos",
 		-- Race --
 		
 		-- Shop --
 		
 		-- Visual --
-		
+		["Name"] = "",
+			["Name"] = "",
+			["Name"] = "",
+			["Name"] = "",
+			["Name"] = "",
+			["Name"] = "",
+			["Name"] = "",
+			["Name"] = "",
+			["Name"] = "",
+			["Name"] = "",
+			["Name"] = "",
 	},
 }
