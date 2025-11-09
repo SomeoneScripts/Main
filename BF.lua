@@ -906,7 +906,7 @@
 		            elseif MyLevel > 2674 and MyLevel < 1700 then
 		                Module = {"Ocean Prophet", "SubmergedQuest2", 2, Vector3.new(11050, -2001, 10142)}
 		            elseif MyLevel > 1699 then
-			              Module = {"Grand Devote", "SubmergedQuest3", 2, Vector3.new(9568, -1993, 9857)}
+			              Module = {"Grand Devotee", "SubmergedQuest3", 2, Vector3.new(9568, -1993, 9857)}
 					end
 				else
 					Module = {"Skull Slayer", "TikiQuest3", 2, Vector3.new(-16811, 84, 1542)}
@@ -3359,3 +3359,4 @@
 		end
 
 	end})
+
