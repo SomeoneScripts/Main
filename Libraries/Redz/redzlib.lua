@@ -2583,9 +2583,9 @@ function redzlib:MakeWindow(Configs)
 			local TClearText = Configs[3] or Configs.ClearText or false
 			local Callback = Funcs:GetCallback(Configs, 4)
 			
-			if type(TDefault) ~= "string" or TDefault:gsub(" ", ""):len() < 1 then
-				TDefault = false
-			end
+			--if type(TDefault) ~= "string" or TDefault:gsub(" ", ""):len() < 1 then
+				--TDefault = false
+			--end
 			
 			local Button, LabelFunc = ButtonFrame(Container, Translate(TName), Translate(TDesc), UDim2.new(1, -38))
 			
