@@ -86,6 +86,8 @@ return {
 			["Elite Hunter Spawned"] = "Caçador De Elite Gerado",
 			["Progress"] = "Progresso",
 			["Time Until Next Spawn"] = "Tempo Até O Próximo Nascer",
+			["Elite Hunter Spawned: None"] = "Caçador De Elite Gerado: Nenhum",
+			["Farm Elite Hunters"] = "Farmar Caçadores De Elite",
 		-- Quests --
 		
 		-- SeaEvent --
