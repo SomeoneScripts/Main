@@ -830,6 +830,6 @@
 	}
 		
 	function RandomIcon()
-		local Icone = Icons[math.random(1, #IconsList)]
+		local Icone = Icons[math.random(1, #Icons)]
 		return Icone
 	end
