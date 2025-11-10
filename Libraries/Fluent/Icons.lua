@@ -1,4 +1,4 @@
-	local Icons = {
+	Icons = {
 		"rbxassetid://10709751939",
 		"rbxassetid://10709752035",
 		"rbxassetid://10709752131",
@@ -832,4 +832,60 @@
 	function RandomIcon()
 		local Icone = Icons[math.random(1, #Icons)]
 		return Icone
+	end
+	
+	TheMostList = {
+	    "The Most Loved",
+	    "The Most Honored",
+	    "The Most Handsome",
+	    "The Most Brilliant",
+	    "The Most Charming",
+	    "The Most Irresistible",
+	    "The Most Enchanting",
+	    "The Most Stylish",
+	    "The Most Fabulous",
+	    "The Most Magnetic",
+	    "The Most Seductive",
+	    "The Most Radiant",
+	    "The Most Incredible",
+	    "The Most Admired",
+	    "The Most Desired",
+	    "The Most Vibrant",
+	    "The Most Powerful",
+	    "The Most Elegant",
+	    "The Most Spectacular",
+	    "The Most Unstoppable",
+	    "The Fastest",
+	    "The Biggest Eater",
+	    "The Most Adventurous",
+	    "The Funniest",
+	    "The Most Determined",
+	    "The Most Curious",
+	    "The Most Talented",
+	    "The Messiest",
+	    "The Smiliest",
+	    "The Most Mysterious",
+	    "The Life of the Party",
+	    "The Most Romantic",
+	    "The Smartest",
+	    "The Luckiest",
+	    "The Most Talkative",
+	    "The Most Relaxed",
+	    "The Most Focused",
+	    "The Most Charismatic",
+	    "The Most Rebellious",
+	    "The Cutest",
+	    "The Most Loyal",
+	    "The Most Dramatic",
+	    "The Most Studious",
+	    "The Dreamiest",
+	    "The Most Musical",
+	    "The Most Artistic",
+	    "The Most Fashionable",
+	    "The Most Tech-Savvy",
+	    "The Biggest Coffee Addict"
+	}
+	
+	function SortedText()
+	    return TheMostList[math.random(1, #TheMostList)]
 	end
