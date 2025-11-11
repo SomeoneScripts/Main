@@ -36,6 +36,34 @@ local RenderStepped = RunService.RenderStepped
 
 local ProtectGui = protectgui or (syn and syn.protect_gui) or function() end
 
+local LocalizationService: LocalizationService = game:GetService("LocalizationService")
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/SomeoneScripts/Main/refs/heads/main/Translation%20System/Translate.txt"))()
+
+function GetLocalLanguage(): string?
+    if Settings and Settings["Translate"] then
+        if Translations[Settings["Language"]] then
+            return Settings["Language"]
+        end
+        local success, country = pcall(function()
+            return LocalizationService:GetCountryRegionForPlayerAsync(LocalPlayer)
+        end)
+        if success and country and Translations[country] then
+            return country
+        end
+    end
+    return nil
+end
+
+local lang: string? = GetLocalLanguage()
+
+function Translate(Phrase)
+    local GameId = tostring(game.GameId)
+    local LangTable = Translations[lang] and Translations[lang][GameId]
+    if not LangTable then return Phrase end
+    return LangTable[Phrase] or Phrase
+end
+
 local Themes = {
 	Names = {
 		"Dark",
@@ -3049,9 +3077,9 @@ Components.Notification = (function()
 	end
 
 	function Notification:New(Config)
-		Config.Title = Config.Title or "Title"
-		Config.Content = Config.Content or "Content"
-		Config.SubContent = Config.SubContent or ""
+		Config.Title = Translate(Config.Title) or "Title"
+		Config.Content = Translate(Config.Content) or "Content"
+		Config.SubContent = Translate(Config.SubContent) or ""
 		Config.Duration = Config.Duration or nil
 		local NewNotification = {
 			Closed = false,
@@ -3482,7 +3510,7 @@ Components.TitleBar = (function()
 
 				New("TextLabel", {
 					RichText = true,
-					Text = Config.Title,
+					Text = Translate(Config.Title),
 					FontFace = Font.new(
 						"rbxasset://fonts/families/GothamSSm.json",
 						Enum.FontWeight.Regular,
@@ -4076,8 +4104,8 @@ Components.Window = (function()
 
 
 		Window.TitleBar = Components.TitleBar({
-			Title = Config.Title,
-			SubTitle = Config.SubTitle,
+			Title = Translate(Config.Title),
+			SubTitle = Translate(Config.SubTitle),
 			Icon = Config.Icon,
 			Parent = Window.Root,
 			Window = Window,
@@ -4536,7 +4564,7 @@ Components.Window = (function()
 		local DialogModule = Components.Dialog:Init(Window)
 		function Window:Dialog(Config)
 			local Dialog = DialogModule:Create()
-			Dialog.Title.Text = Config.Title
+			Dialog.Title.Text = Translate(Config.Title)
 
 			local ContentHolder = New("ScrollingFrame", {
 				BackgroundTransparency = 1,
@@ -4593,7 +4621,7 @@ Components.Window = (function()
 
 		local TabModule = Components.Tab:Init(Window)
 		function Window:AddTab(TabConfig)
-			local tab = TabModule:New(TabConfig.Title, TabConfig.Icon, Window.TabHolder)
+			local tab = TabModule:New(Translate(TabConfig.Title), TabConfig.Icon, Window.TabHolder)
 			return tab
 		end
 
@@ -4623,7 +4651,7 @@ ElementsTable.Button = (function()
 		assert(Config.Title, "Button - Missing Title")
 		Config.Callback = Config.Callback or function() end
 
-		local ButtonFrame = Components.Element(Config.Title, Config.Description, self.Container, true, Config)
+		local ButtonFrame = Components.Element(Translate(Config.Title), Translate(Config.Description), self.Container, true, Config)
 
 		local ButtonIco = New("ImageLabel", {
 			Image = "rbxassetid://10709791437",
@@ -4660,7 +4688,7 @@ ElementsTable.Toggle = (function()
 			Type = "Toggle",
 		}
 
-		local ToggleFrame = Components.Element(Config.Title, Config.Description, self.Container, true, Config)
+		local ToggleFrame = Components.Element(Translate(Config.Title), Translate(Config.Description), self.Container, true, Config)
 		ToggleFrame.DescLabel.Size = UDim2.new(1, -54, 0, 14)
 
 		Toggle.SetTitle = ToggleFrame.SetTitle
@@ -4785,7 +4813,7 @@ ElementsTable.Dropdown = (function()
 			Dropdown.Value = {}
 		end
 
-		local DropdownFrame = Components.Element(Config.Title, Config.Description, self.Container, false, Config)
+		local DropdownFrame = Components.Element(Translate(Config.Title), Translate(Config.Description), self.Container, false, Config)
 		DropdownFrame.DescLabel.Size = UDim2.new(1, -170, 0, 14)
 
 		Dropdown.SetTitle = DropdownFrame.SetTitle
@@ -5343,7 +5371,7 @@ ElementsTable.Dropdown = (function()
 				Str = Dropdown.Value or ""
 			end
 
-			DropdownDisplay.Text = (Str == "" and "--" or Str)
+			DropdownDisplay.Text = (Str == "" and "--" or Translate(Str))
 		end
 
 		function Dropdown:GetActiveValues()
@@ -5618,9 +5646,9 @@ ElementsTable.Paragraph = (function()
 	Paragraph.__type = "Paragraph"
 
 	function Paragraph:New(Config)
-		Config.Content = Config.Content or ""
+		Config.Content = Config.Content or Config.Description or ""
 
-		local Paragraph = Components.Element(Config.Title, Config.Content, Paragraph.Container, false, Config)
+		local Paragraph = Components.Element(Translate(Config.Title), Translate(Config.Content), Paragraph.Container, false, Config)
 		Paragraph.Frame.BackgroundTransparency = 0.92
 		Paragraph.Border.Transparency = 0.6
 
@@ -5657,7 +5685,7 @@ ElementsTable.Slider = (function()
 
 		local Dragging = false
 
-		local SliderFrame = Components.Element(Config.Title, Config.Description, self.Container, false, Config)
+		local SliderFrame = Components.Element(Translate(Config.Title), Translate(Config.Description), self.Container, false, Config)
 		SliderFrame.DescLabel.Size = UDim2.new(1, -170, 0, 14)
 
 		Slider.Elements = SliderFrame
@@ -5985,7 +6013,7 @@ ElementsTable.Keybind = (function()
 
 		local Picking = false
 
-		local KeybindFrame = Components.Element(Config.Title, Config.Description, self.Container, true)
+		local KeybindFrame = Components.Element(Translate(Config.Title), Translate(Config.Description), self.Container, true)
 
 		Keybind.SetTitle = KeybindFrame.SetTitle
 		Keybind.SetDesc = KeybindFrame.SetDesc
@@ -6191,7 +6219,7 @@ ElementsTable.Colorpicker = (function()
 
 		Colorpicker:SetHSVFromRGB(Colorpicker.Value)
 
-		local ColorpickerFrame = Components.Element(Config.Title, Config.Description, self.Container, true)
+		local ColorpickerFrame = Components.Element(Translate(Config.Title), Translate(Config.Description), self.Container, true)
 
 		Colorpicker.SetTitle = ColorpickerFrame.SetTitle
 		Colorpicker.SetDesc = ColorpickerFrame.SetDesc
@@ -6687,7 +6715,7 @@ ElementsTable.Input = (function()
 			Type = "Input",
 		}
 
-		local InputFrame = Components.Element(Config.Title, Config.Description, self.Container, false)
+		local InputFrame = Components.Element(Translate(Config.Title), Translate(Config.Description), self.Container, false)
 
 		Input.SetTitle = InputFrame.SetTitle
 		Input.SetDesc = InputFrame.SetDesc
@@ -9044,7 +9072,7 @@ Library.CreateWindow = function(self, Config)
 		Size = Config.Size,
 
 
-		Title = Config.Title,
+		Title = Translate(Config.Title),
 
 
 		Icon = Icon,
@@ -9059,7 +9087,7 @@ Library.CreateWindow = function(self, Config)
 		BackgroundTransparency = Config.BackgroundTransparency,
 
 
-		SubTitle = Config.SubTitle,
+		SubTitle = Translate(Config.SubTitle),
 
 
 		TabWidth = Config.TabWidth,
@@ -9079,7 +9107,7 @@ Library.CreateWindow = function(self, Config)
 		UserInfoTop = Config.UserInfoTop,
 
 
-		UserInfoSubtitle = Config.UserInfoSubtitle,
+		UserInfoSubtitle = Translate(Config.UserInfoSubtitle),
 
 
 		UserInfoSubtitleColor = Config.UserInfoSubtitleColor,
