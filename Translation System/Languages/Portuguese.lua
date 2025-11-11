@@ -1,7 +1,7 @@
 return {
 	["994732206"] = { -- Blox Fruits
 		-- Others --
-		["By Someone"] = "Por Someone",
+		["Developed By Vortex Team"] = "Desenvolvido Pela Equipe Vortex",
 		["Social Media"] = "Mídias Sociais",
 		["Server Info"] = "Informações Do Servidor",
 		["Stats"] = "Estatísticas",
@@ -67,9 +67,48 @@ return {
 		["The Biggest Coffee Addict"] = "O Mais Viciado em Café",
 		-- Social --
 		["Script Community; There You Can Find People And More Information About The Script"] = "Comunidade Do Script; Lá Você Pode Encontrar Pessoas E Mais Informações Sobre O Roteiro.",
-		-- Settings --
-		-- Status --
 		-- Stats --
+		["Auto Stats"] = "Estatísticas Automáticas",
+			["Select Points Amount"] = "Selecione A Quantidade De Pontos",
+			["Add Statistics To Melee"] = "Adicionar Estatísticas Ao Soco",
+			["Add Statistics To Defense"] = "Adicionar Estatísticas À Defesa",
+			["Add Statistics To Sword"] = "Adicionar Estatísticas À Espada",
+			["Add Statistics To Gun"] = "Adicionar Estatísticas À Arma",
+			["Add Statistics To Blox Fruit"] = "Adicionar Estatísticas Ao Blox Fruit",
+		-- Settings --
+		["Main Settings"] = "Configurações Especiais",
+			["Select Tool Tip"] = "Selecione O Tipo Da Ferramenta",
+			["Tween Speed"] = "Velocidade Do Vôo",
+			["Bring Enemies"] = "Trazer Inimigos",
+			["Auto Buso"] = "Buso Automático",
+			["Auto Attack"] = "Ataque Automático",
+		["Others Settings"] = "Outras Coisas",
+			["Enable V3 Race"] = "Ativar Raça V3",
+			["Enable V4 Race"] = "Ativar Raça V4",
+		["Codes"] = "Códigos",
+			["Redeem All Codes"] = "Resgatar Todos Os Códigos",
+		["Menu"] = "Menu",
+			["Open The Normal Fruit Shop"] = "Abrir A Loja De Frutas Normais",
+			["Open The Advanced Fruit Shop"] = "Abrir A Loja De Frutas Avançadas",
+			["Open The Titles Menu"] = "Abrir O Menu Dos Títulos",
+		["Server"] = "Servidor",
+			["Server Id"] = "ID Do Servidor",
+			["Copy Server Id"] = "Copiar ID Do Servidor",
+			["Rejoin"] = "Reentrar No Servidor",
+			["Change Server"] = "Alterar De Servidor",
+			["Enter Server Id"] = "Coloque Um ID De Servidor",
+			["Server Id Here"] = "ID Do Servidor Aqui",
+			["Join Server Id"] = "Entra No Servidor Do Id Colocado",
+		["Team"] = "Equipe",
+			["Join Pirates"] = "Junte-se Aos Piratas",
+			["Join Marines"] = "Junte-se À Marinha",
+			["Select Team"] = "Selecione A Equipa",
+			["Auto Choose Team"] = "Escolher A Equipe Automaticamente",
+		["More FPS"] = "Mais FPS",
+			["Disable Notifications"] = "Desativar Notificações",
+		["Others"] = "Outros",
+			["Reset Settings And Rejoin"] = "Redefinir As Configurações E Entrar Novamente",
+			["Ant Reset"] = "Anti Reset",
 		-- Main --
 		-- Quests --	
 		-- SeaEvent --
@@ -80,8 +119,5 @@ return {
 		-- Race --
 		-- Shop --
 		-- Visual --
-	},
-	["7326934954"] = { -- 99 Nights In The Forest
-		
 	},
 }
