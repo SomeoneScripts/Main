@@ -36,96 +36,32 @@ local RenderStepped = RunService.RenderStepped
 
 local ProtectGui = protectgui or (syn and syn.protect_gui) or function() end
 
+local LocalizationService: LocalizationService = game:GetService("LocalizationService")
+
 loadstring(game:HttpGet("https://raw.githubusercontent.com/SomeoneScripts/Main/refs/heads/main/Translation%20System/Translate.txt"))()
 
-local HttpService = game:GetService("HttpService")
-local request = http.request or request
+function GetLocalLanguage(): string?
+    if Settings and Settings["Translate"] then
+        if Translations[Settings["Language"]] then
+            return Settings["Language"]
+        end
+        local success, country = pcall(function()
+            return LocalizationService:GetCountryRegionForPlayerAsync(LocalPlayer)
+        end)
+        if success and country and Translations[country] then
+            return country
+        end
+    end
+    return nil
+end
 
-local LanguageCodes = {
-    Arabic = "ar",
-    Bulgarian = "bg",
-    Catalan = "ca",
-    ChineseSimplified = "zh-CN",
-    ChineseTraditional = "zh-TW",
-    Croatian = "hr",
-    Czech = "cs",
-    Danish = "da",
-    Dutch = "nl",
-    English = "en",
-    Estonian = "et",
-    Finnish = "fi",
-    French = "fr",
-    German = "de",
-    Greek = "el",
-    Hebrew = "he",
-    Hindi = "hi",
-    Hungarian = "hu",
-    Icelandic = "is",
-    Indonesian = "id",
-    Italian = "it",
-    Japanese = "ja",
-    Korean = "ko",
-    Latvian = "lv",
-    Lithuanian = "lt",
-    Malay = "ms",
-    Norwegian = "no",
-    Persian = "fa",
-    Polish = "pl",
-    Portuguese = "pt",
-    Romanian = "ro",
-    Russian = "ru",
-    Slovak = "sk",
-    Slovenian = "sl",
-    Spanish = "es",
-    Swedish = "sv",
-    Thai = "th",
-    Turkish = "tr",
-    Ukrainian = "uk",
-    Vietnamese = "vi"
-}
+local lang: string? = GetLocalLanguage()
 
-function Translate(Text)
-    if not Settings.Translate then return Text end
-    local Code = LanguageCodes[Settings.Language]
-    if not Code then return Text end
-    local ok1, result = pcall(function()
-        local url = "https://api.mymemory.translated.net/get?q="..HttpService:UrlEncode(Text).."&langpair=en|"..Code
-        local res = request({Url = url, Method = "GET"})
-        if not res or not res.Body then return nil end
-        local data = HttpService:JSONDecode(res.Body)
-        if data.responseData and data.responseData.translatedText and data.responseData.translatedText ~= Text then
-            return data.responseData.translatedText
-        end
-        return nil
-    end)
-    if ok1 and result then return result end
-    local ok2, ltResult = pcall(function()
-        local body = HttpService:JSONEncode({q=Text, source="en", target=Code})
-        local res = request({Url = "https://libretranslate.com/translate", Method = "POST", Headers = {["Content-Type"]="application/json"}, Body = body})
-        if not res or not res.Body then return nil end
-        local data = HttpService:JSONDecode(res.Body)
-        if data.translatedText and data.translatedText ~= Text then
-            return data.translatedText
-        end
-        return nil
-    end)
-    if ok2 and ltResult then return ltResult end
-    local ok3, gtResult = pcall(function()
-        local url = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl="..Code.."&dt=t&q="..HttpService:UrlEncode(Text)
-        local res = request({Url = url, Method = "GET"})
-        if not res or not res.Body then return Text end
-        local data = HttpService:JSONDecode(res.Body)
-        if type(data) == "table" and data[1] and data[1][1] then
-            local parts = {}
-            for i = 1, #data[1] do
-                parts[#parts+1] = data[1][i][1] or ""
-            end
-            return table.concat(parts)
-        end
-        return Text
-    end)
-    if ok3 and gtResult then return gtResult end
-    return Text
+function Translate(Phrase)
+    local GameId = tostring(game.GameId)
+    local LangTable = Translations[lang] and Translations[lang][GameId]
+    if not LangTable then return Phrase end
+    return LangTable[Phrase] or Phrase
 end
 
 local Themes = {
@@ -4714,9 +4650,7 @@ ElementsTable.Button = (function()
 	function Element:New(Config)
 		assert(Config.Title, "Button - Missing Title")
 		Config.Callback = Config.Callback or function() end
-		Config.Title = Config.Title and Translate(Config.Title)
-		Config.Description = Config.Description and Translate(Config.Description)
-		
+
 		local ButtonFrame = Components.Element(Translate(Config.Title), Translate(Config.Description), self.Container, true, Config)
 
 		local ButtonIco = New("ImageLabel", {
