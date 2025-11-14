@@ -1273,7 +1273,7 @@ local Creator = {
 		TextLabel = {
 			BackgroundColor3 = Color3.new(1, 1, 1),
 			BorderColor3 = Color3.new(0, 0, 0),
-			Font = Enum.Font.SourceSans,
+			Font = "FredokaOne", --Enum.Font.SourceSans,
 			Text = "",
 			TextColor3 = Color3.new(0, 0, 0),
 			BackgroundTransparency = 1,
@@ -1283,7 +1283,7 @@ local Creator = {
 			BackgroundColor3 = Color3.new(1, 1, 1),
 			BorderColor3 = Color3.new(0, 0, 0),
 			AutoButtonColor = false,
-			Font = Enum.Font.SourceSans,
+			Font = "FredokaOne", --Enum.Font.SourceSans,
 			Text = "",
 			TextColor3 = Color3.new(0, 0, 0),
 			TextSize = 14,
@@ -1292,7 +1292,7 @@ local Creator = {
 			BackgroundColor3 = Color3.new(1, 1, 1),
 			BorderColor3 = Color3.new(0, 0, 0),
 			ClearTextOnFocus = false,
-			Font = Enum.Font.SourceSans,
+			Font = "FredokaOne", --Enum.Font.SourceSans,
 			Text = "",
 			TextColor3 = Color3.new(0, 0, 0),
 			TextSize = 14,
@@ -2245,7 +2245,7 @@ Components.Element = (function()
 		local Options = Options or {}
 
 		Element.TitleLabel = New("TextLabel", {
-			FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Medium, Enum.FontStyle.Normal),
+			FontFace = Font.new("rbxasset://fonts/families/FredokaOne.json"),--Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Medium, Enum.FontStyle.Normal),
 			Text = Title,
 			TextColor3 = Color3.fromRGB(240, 240, 240),
 			TextSize = 13,
@@ -2295,7 +2295,7 @@ Components.Element = (function()
 		Element.TitleLabel.Parent = Element.Header
 
 		Element.DescLabel = New("TextLabel", {
-			FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json"),
+			FontFace = Font.new("rbxasset://fonts/families/FredokaOne.json"),--Font.new("rbxasset://fonts/families/FredokaOne.json"),
 			Text = Desc,
 			TextColor3 = Color3.fromRGB(200, 200, 200),
 			TextSize = 12,
@@ -2360,76 +2360,75 @@ Components.Element = (function()
 		})
 
 		function Element:SetTitle(Set)
-			Element.TitleLabel.Text = Set
-			local hasTitle = (Set ~= nil and Set ~= "")
-			Element.Header.Visible = hasTitle
-
-			if not hasTitle then
-				if Element.IconImage then
-					if not Element.DescRow then
-						Element.DescRow = New("Frame", {
-							AutomaticSize = Enum.AutomaticSize.Y,
-							BackgroundTransparency = 1,
-							Size = UDim2.new(1, 0, 0, 14),
-							LayoutOrder = 2,
-						}, {
-							New("UIListLayout", {
-								Padding = UDim.new(0, 5),
-								FillDirection = Enum.FillDirection.Horizontal,
-								SortOrder = Enum.SortOrder.LayoutOrder,
-								VerticalAlignment = Enum.VerticalAlignment.Center,
-							}),
-						})
-						Element.DescRow.Parent = Element.LabelHolder
-					end
-
-					if not Element.DescIconImage then
-						Element.DescIconImage = New("ImageLabel", {
-							Image = Element.IconImage.Image,
-							Size = UDim2.fromOffset(16, 16),
-							BackgroundTransparency = 1,
-							LayoutOrder = 1,
-							ThemeTag = {
-								ImageColor3 = "Text",
-							},
-						})
-						Element.DescIconImage.Parent = Element.DescRow
-					else
-						Element.DescIconImage.Image = Element.IconImage.Image
-						Element.DescIconImage.Parent = Element.DescRow
-					end
-
-					Element.DescLabel.Parent = Element.DescRow
-					Element.DescLabel.LayoutOrder = 2
-					Element.DescLabel.Size = UDim2.new(1, -24, 0, 14)
-				else
-					if Element.DescRow then
-						Element.DescRow:Destroy()
-						Element.DescRow = nil
-						Element.DescIconImage = nil
-					end
-					Element.DescLabel.Parent = Element.LabelHolder
-					Element.DescLabel.LayoutOrder = 2
-					Element.DescLabel.Size = UDim2.new(1, 0, 0, 14)
-				end
-			else
-				if Element.DescRow then
-					Element.DescRow:Destroy()
-					Element.DescRow = nil
-					Element.DescIconImage = nil
-				end
-				Element.DescLabel.Parent = Element.LabelHolder
-				Element.DescLabel.LayoutOrder = 2
-				Element.DescLabel.Size = UDim2.new(1, 0, 0, 14)
-			end
-			if Library.Window and Library.Window.AllElements and Library.Window.AllElements[Element.Frame] then
-				Library.Window.AllElements[Element.Frame].title = Set
-			elseif Library.Windows and #Library.Windows > 0 then
-				local currentWindow = Library.Windows[#Library.Windows]
-				if currentWindow and currentWindow.AllElements and currentWindow.AllElements[Element.Frame] then
-					currentWindow.AllElements[Element.Frame].title = Set
-				end
-			end
+		    Element.TitleLabel.Text = Set
+		    local hasTitle = (Set ~= nil and Set ~= "")
+		    Element.Header.Visible = hasTitle
+		
+		    local function EnsureDescRow()
+		        if not Element.DescRow then
+		            Element.DescRow = New("Frame", {
+		                AutomaticSize = Enum.AutomaticSize.Y,
+		                BackgroundTransparency = 1,
+		                Size = UDim2.new(1, 0, 0, 14),
+		                LayoutOrder = 2,
+		            }, {
+		                New("UIListLayout", {
+		                    Padding = UDim.new(0, 5),
+		                    FillDirection = Enum.FillDirection.Horizontal,
+		                    SortOrder = Enum.SortOrder.LayoutOrder,
+		                    VerticalAlignment = Enum.VerticalAlignment.Center,
+		                }),
+		            })
+		            if Element.LabelHolder then
+		                Element.DescRow.Parent = Element.LabelHolder
+		            end
+		        end
+		    end
+		
+		    if not hasTitle and Element.IconImage then
+		        EnsureDescRow()
+		
+		        if not Element.DescIconImage then
+		            Element.DescIconImage = New("ImageLabel", {
+		                Image = Element.IconImage.Image,
+		                Size = UDim2.fromOffset(16, 16),
+		                BackgroundTransparency = 1,
+		                LayoutOrder = 1,
+		                ThemeTag = { ImageColor3 = "Text" },
+		            })
+		        else
+		            Element.DescIconImage.Image = Element.IconImage.Image
+		        end
+		
+		        Element.DescIconImage.Parent = Element.DescRow
+		
+		        if Element.DescLabel then
+		            Element.DescLabel.Parent = Element.DescRow
+		            Element.DescLabel.LayoutOrder = 2
+		            Element.DescLabel.Size = UDim2.new(1, -24, 0, 14)
+		        end
+		    else
+		        if Element.DescRow then
+		            Element.DescRow:Destroy()
+		            Element.DescRow = nil
+		            Element.DescIconImage = nil
+		        end
+		
+		        if Element.DescLabel and Element.LabelHolder then
+		            Element.DescLabel.Parent = Element.LabelHolder
+		            Element.DescLabel.LayoutOrder = 2
+		            Element.DescLabel.Size = UDim2.new(1, 0, 0, 14)
+		        end
+		    end
+		
+		    if Library.Window and Library.Window.AllElements and Library.Window.AllElements[Element.Frame] then
+		        Library.Window.AllElements[Element.Frame].title = Set
+		    elseif Library.Windows and #Library.Windows > 0 then
+		        local currentWindow = Library.Windows[#Library.Windows]
+		        if currentWindow and currentWindow.AllElements and currentWindow.AllElements[Element.Frame] then
+		            currentWindow.AllElements[Element.Frame].title = Set
+		        end
+		    end
 		end
 
 		function Element:Visible(Bool)
@@ -2552,7 +2551,7 @@ Components.Section = (function()
 				RichText = true,
 				Text = Title,
 				TextTransparency = 0,
-				FontFace = Font.new("rbxassetid://12187365364", Enum.FontWeight.SemiBold, Enum.FontStyle.Normal),
+				FontFace = Font.new("rbxasset://fonts/families/FredokaOne.json"),--Font.new("rbxassetid://12187365364", Enum.FontWeight.SemiBold, Enum.FontStyle.Normal),
 				TextSize = 18,
 				TextXAlignment = "Left",
 				TextYAlignment = "Center",
@@ -2662,7 +2661,7 @@ Components.Tab = (function()
 				RichText = true,
 				TextColor3 = Color3.fromRGB(255, 255, 255),
 				TextTransparency = 0,
-				FontFace = Font.new(
+				FontFace = Font.new("rbxasset://fonts/families/FredokaOne.json"),--Font.new(
 					"rbxasset://fonts/families/GothamSSm.json",
 					Enum.FontWeight.Regular,
 					Enum.FontStyle.Normal
@@ -2824,7 +2823,7 @@ Components.Button = (function()
 		local Button = {}
 
 		Button.Title = New("TextLabel", {
-			FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json"),
+			FontFace = Font.new("rbxasset://fonts/families/FredokaOne.json"),--Font.new("rbxasset://fonts/families/GothamSSm.json"),
 			TextColor3 = Color3.fromRGB(200, 200, 200),
 			TextSize = 14,
 			TextWrapped = true,
@@ -2952,7 +2951,7 @@ Components.Dialog = (function()
 		})
 
 		NewDialog.Title = New("TextLabel", {
-			FontFace = Font.new(
+			FontFace = Font.new("rbxasset://fonts/families/FredokaOne.json"),--Font.new(
 				"rbxasset://fonts/families/GothamSSm.json",
 				Enum.FontWeight.SemiBold,
 				Enum.FontStyle.Normal
@@ -3093,7 +3092,7 @@ Components.Notification = (function()
 			RichText = true,
 			TextColor3 = Color3.fromRGB(255, 255, 255),
 			TextTransparency = 0,
-			FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json"),
+			FontFace = Font.new("rbxasset://fonts/families/FredokaOne.json"),--Font.new("rbxasset://fonts/families/GothamSSm.json"),
 			TextSize = 13,
 			TextXAlignment = "Left",
 			TextYAlignment = "Center",
@@ -3106,7 +3105,7 @@ Components.Notification = (function()
 		})
 
 		NewNotification.ContentLabel = New("TextLabel", {
-			FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json"),
+			FontFace = Font.new("rbxasset://fonts/families/FredokaOne.json"),--Font.new("rbxasset://fonts/families/GothamSSm.json"),
 			Text = Config.Content,
 			TextColor3 = Color3.fromRGB(240, 240, 240),
 			TextSize = 14,
@@ -3122,7 +3121,7 @@ Components.Notification = (function()
 		})
 
 		NewNotification.SubContentLabel = New("TextLabel", {
-			FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json"),
+			FontFace = Font.new("rbxasset://fonts/families/FredokaOne.json"),--Font.new("rbxasset://fonts/families/GothamSSm.json"),
 			Text = Config.SubContent,
 			TextColor3 = Color3.fromRGB(240, 240, 240),
 			TextSize = 14,
@@ -3295,7 +3294,7 @@ Components.Textbox = (function()
 		local Textbox = {}
 
 		Textbox.Input = New("TextBox", {
-			FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json"),
+			FontFace = Font.new("rbxasset://fonts/families/FredokaOne.json"),--Font.new("rbxasset://fonts/families/GothamSSm.json"),
 			TextColor3 = Color3.fromRGB(200, 200, 200),
 			TextSize = 14,
 			TextXAlignment = Enum.TextXAlignment.Left,
@@ -3511,7 +3510,7 @@ Components.TitleBar = (function()
 				New("TextLabel", {
 					RichText = true,
 					Text = Translate(Config.Title),
-					FontFace = Font.new(
+					FontFace = Font.new("rbxasset://fonts/families/FredokaOne.json"),--Font.new(
 						"rbxasset://fonts/families/GothamSSm.json",
 						Enum.FontWeight.Regular,
 						Enum.FontStyle.Normal
@@ -3531,7 +3530,7 @@ Components.TitleBar = (function()
 					RichText = true,
 					Text = Config.SubTitle,
 					TextTransparency = 0.4,
-					FontFace = Font.new(
+					FontFace = Font.new("rbxasset://fonts/families/FredokaOne.json"),--Font.new(
 						"rbxasset://fonts/families/GothamSSm.json",
 						Enum.FontWeight.Regular,
 						Enum.FontStyle.Normal
@@ -3940,7 +3939,7 @@ Components.Window = (function()
 		})
 
 		local SearchInput = New("TextBox", {
-			FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json"),
+			FontFace = Font.new("rbxasset://fonts/families/FredokaOne.json"),--Font.new("rbxasset://fonts/families/GothamSSm.json"),
 			TextColor3 = Color3.fromRGB(200, 200, 200),
 			TextSize = 13,
 			TextXAlignment = Enum.TextXAlignment.Left,
@@ -4022,7 +4021,7 @@ Components.Window = (function()
 			RichText = true,
 			Text = "Tab",
 			TextTransparency = 0,
-			FontFace = Font.new("rbxassetid://12187365364", Enum.FontWeight.SemiBold, Enum.FontStyle.Normal),
+			FontFace = Font.new("rbxasset://fonts/families/FredokaOne.json"),--Font.new("rbxassetid://12187365364", Enum.FontWeight.SemiBold, Enum.FontStyle.Normal),
 			TextSize = 28,
 			TextXAlignment = "Left",
 			TextYAlignment = "Center",
@@ -4175,7 +4174,7 @@ Components.Window = (function()
 				BackgroundTransparency = 1,
 				TextXAlignment = Enum.TextXAlignment.Left,
 				TextYAlignment = Enum.TextYAlignment.Bottom,
-				FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Medium, Enum.FontStyle.Normal),
+				FontFace = Font.new("rbxasset://fonts/families/FredokaOne.json"),--Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Medium, Enum.FontStyle.Normal),
 				TextSize = 13,
 				Text = titleText,
 				Size = UDim2.new(1, -avatarSize - 12, 0.5, 0),
@@ -4189,7 +4188,7 @@ Components.Window = (function()
 				BackgroundTransparency = 1,
 				TextXAlignment = Enum.TextXAlignment.Left,
 				TextYAlignment = Enum.TextYAlignment.Top,
-				FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal),
+				FontFace = Font.new("rbxasset://fonts/families/FredokaOne.json"),--Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal),
 				TextSize = 12,
 				TextTransparency = 0.2,
 				Text = subtitleText,
@@ -4581,7 +4580,7 @@ Components.Window = (function()
 			})
 
 			local Content = New("TextLabel", {
-				FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json"),
+				FontFace = Font.new("rbxasset://fonts/families/FredokaOne.json"),--Font.new("rbxasset://fonts/families/GothamSSm.json"),
 				Text = Config.Content,
 				TextColor3 = Color3.fromRGB(240, 240, 240),
 				TextSize = 14,
@@ -4824,7 +4823,7 @@ ElementsTable.Dropdown = (function()
 		local container = self.Container
 
 		local DropdownDisplay = New("TextLabel", {
-			FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal),
+			FontFace = Font.new("rbxasset://fonts/families/FredokaOne.json"),--Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal),
 			Text = "",
 			TextColor3 = Color3.fromRGB(240, 240, 240),
 			TextSize = 14,
@@ -4914,7 +4913,7 @@ ElementsTable.Dropdown = (function()
 			})
 
 			SearchBox = New("TextBox", {
-				FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json"),
+				FontFace = Font.new("rbxasset://fonts/families/FredokaOne.json"),--Font.new("rbxasset://fonts/families/GothamSSm.json"),
 				TextColor3 = Color3.fromRGB(200, 200, 200),
 				TextSize = 13,
 				TextXAlignment = Enum.TextXAlignment.Left,
@@ -5429,7 +5428,7 @@ ElementsTable.Dropdown = (function()
 				})
 
 				local ButtonLabel = New("TextLabel", {
-					FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json"),
+					FontFace = Font.new("rbxasset://fonts/families/FredokaOne.json"),--Font.new("rbxasset://fonts/families/GothamSSm.json"),
 					Text = Value,
 					TextColor3 = Color3.fromRGB(200, 200, 200),
 					TextSize = 13,
@@ -5723,7 +5722,7 @@ ElementsTable.Slider = (function()
 		})
 
 		local SliderDisplay = New("TextLabel", {
-			FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json"),
+			FontFace = Font.new("rbxasset://fonts/families/FredokaOne.json"),--Font.new("rbxasset://fonts/families/GothamSSm.json"),
 			Text = "Value",
 			TextSize = 12,
 			TextWrapped = true,
@@ -5739,7 +5738,7 @@ ElementsTable.Slider = (function()
 		})
 
 		local SliderInput = New("TextBox", {
-			FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json"),
+			FontFace = Font.new("rbxasset://fonts/families/FredokaOne.json"),--Font.new("rbxasset://fonts/families/GothamSSm.json"),
 			Text = "",
 			TextSize = 12,
 			TextXAlignment = Enum.TextXAlignment.Right,
@@ -6021,7 +6020,7 @@ ElementsTable.Keybind = (function()
 		Keybind.Elements = KeybindFrame
 
 		local KeybindDisplayLabel = New("TextLabel", {
-			FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal),
+			FontFace = Font.new("rbxasset://fonts/families/FredokaOne.json"),--Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal),
 			Text = Config.Default,
 			TextColor3 = Color3.fromRGB(240, 240, 240),
 			TextSize = 13,
@@ -6270,7 +6269,7 @@ ElementsTable.Colorpicker = (function()
 
 			local function CreateInputLabel(Text, Pos)
 				return New("TextLabel", {
-					FontFace = Font.new(
+					FontFace = Font.new("rbxasset://fonts/families/FredokaOne.json"),--Font.new(
 						"rbxasset://fonts/families/GothamSSm.json",
 						Enum.FontWeight.Medium,
 						Enum.FontStyle.Normal
