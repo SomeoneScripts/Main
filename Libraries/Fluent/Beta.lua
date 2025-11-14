@@ -2661,8 +2661,7 @@ Components.Tab = (function()
 				RichText = true,
 				TextColor3 = Color3.fromRGB(255, 255, 255),
 				TextTransparency = 0,
-				FontFace = Font.new("rbxasset://fonts/families/FredokaOne.json"),--Font.new(
-					"rbxasset://fonts/families/GothamSSm.json",
+				FontFace = Font.new("rbxasset://fonts/families/FredokaOne.json",
 					Enum.FontWeight.Regular,
 					Enum.FontStyle.Normal
 				),
@@ -2951,8 +2950,7 @@ Components.Dialog = (function()
 		})
 
 		NewDialog.Title = New("TextLabel", {
-			FontFace = Font.new("rbxasset://fonts/families/FredokaOne.json"),--Font.new(
-				"rbxasset://fonts/families/GothamSSm.json",
+			FontFace = Font.new("rbxasset://fonts/families/FredokaOne.json",--Font.new(
 				Enum.FontWeight.SemiBold,
 				Enum.FontStyle.Normal
 			),
@@ -3510,8 +3508,7 @@ Components.TitleBar = (function()
 				New("TextLabel", {
 					RichText = true,
 					Text = Translate(Config.Title),
-					FontFace = Font.new("rbxasset://fonts/families/FredokaOne.json"),--Font.new(
-						"rbxasset://fonts/families/GothamSSm.json",
+					FontFace = Font.new("rbxasset://fonts/families/FredokaOne.json",
 						Enum.FontWeight.Regular,
 						Enum.FontStyle.Normal
 					),
@@ -3530,8 +3527,7 @@ Components.TitleBar = (function()
 					RichText = true,
 					Text = Config.SubTitle,
 					TextTransparency = 0.4,
-					FontFace = Font.new("rbxasset://fonts/families/FredokaOne.json"),--Font.new(
-						"rbxasset://fonts/families/GothamSSm.json",
+					FontFace = Font.new("rbxasset://fonts/families/FredokaOne.json",
 						Enum.FontWeight.Regular,
 						Enum.FontStyle.Normal
 					),
@@ -6269,8 +6265,7 @@ ElementsTable.Colorpicker = (function()
 
 			local function CreateInputLabel(Text, Pos)
 				return New("TextLabel", {
-					FontFace = Font.new("rbxasset://fonts/families/FredokaOne.json"),--Font.new(
-						"rbxasset://fonts/families/GothamSSm.json",
+					FontFace = Font.new("rbxasset://fonts/families/FredokaOne.json",
 						Enum.FontWeight.Medium,
 						Enum.FontStyle.Normal
 					),
