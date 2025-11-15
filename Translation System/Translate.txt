@@ -1,183 +1,90 @@
-	
-	Translations = {}
-	local Languages = {
-	    "Arabic",
-	    "Bengali",
-	    "Burmese",
-	    "Dutch",
-	    "Filipino",
-	    "French",
-	    "German",
-	    "Hebrew",
-	    "Hindi",
-	    "Indonesian",
-	    "Italian",
-	    "Japanese",
-	    "Korean",
-	    "Mandarin",
-	    "Norwegian",
-	    "Persian",
-	    "Polish",
-	    "Portuguese",
-	    "Russian",
-	    "Spanish",
-	    "Swedish",
-	    "Thai",
-	    "Turkish",
-	    "Urdu",
-	    "Vietnamese"
-	}
-	local CountryToLang = {
-	    -- Arabic
-	    ["AE"] = "Arabic", -- Emirados Árabes Unidos
-	    ["BH"] = "Arabic", -- Bahrein
-	    ["DZ"] = "Arabic", -- Argélia
-	    ["EG"] = "Arabic", -- Egito
-	    ["IQ"] = "Arabic", -- Iraque
-	    ["JO"] = "Arabic", -- Jordânia
-	    ["KW"] = "Arabic", -- Kuwait
-	    ["LY"] = "Arabic", -- Líbia
-	    ["MA"] = "Arabic", -- Marrocos
-	    ["MR"] = "Arabic", -- Mauritânia
-	    ["OM"] = "Arabic", -- Omã
-	    ["QA"] = "Arabic", -- Qatar
-	    ["SA"] = "Arabic", -- Arábia Saudita
-	    ["SD"] = "Arabic", -- Sudão
-	    ["SY"] = "Arabic", -- Síria
-	    ["YE"] = "Arabic", -- Iémen
-	
-	    -- Bengali
-	    ["BD"] = "Bengali", -- Bangladesh
-	
-	    -- Burmese
-	    ["MM"] = "Burmese", -- Mianmar
-	
-	    -- Dutch
-	    ["NL"] = "Dutch", -- Países Baixos
-	
-	    -- Filipino
-	    ["PH"] = "Filipino", -- Filipinas
-	
-	    -- French
-	    ["BE"] = "French", -- Bélgica
-	    ["BJ"] = "French", -- Benin
-	    ["BF"] = "French", -- Burkina Faso
-	    ["CA"] = "French", -- Canadá (Quebec)
-	    ["CD"] = "French", -- RDC
-	    ["CI"] = "French", -- Costa do Marfim
-	    ["CM"] = "French", -- Camarões
-	    ["FR"] = "French", -- França
-	    ["ML"] = "French", -- Mali
-	    ["NE"] = "French", -- Níger
-	    ["RW"] = "French", -- Ruanda
-	    ["SN"] = "French", -- Senegal
-	    ["CG"] = "French", -- Congo
-	
-	    -- German
-	    ["AT"] = "German", -- Áustria
-	    ["CH"] = "German", -- Suíça
-	    ["DE"] = "German", -- Alemanha
-	    ["LI"] = "German", -- Liechtenstein
-	
-	    -- Hebrew
-	    ["IL"] = "Hebrew", -- Israel
-	
-	    -- Hindi
-	    ["IN"] = "Hindi", -- Índia
-	    ["NP"] = "Hindi", -- Nepal
-	
-	    -- Indonesian
-	    ["ID"] = "Indonesian", -- Indonésia
-	
-	    -- Italian
-	    ["IT"] = "Italian", -- Itália
-	
-	    -- Japanese
-	    ["JP"] = "Japanese", -- Japão
-	
-	    -- Korean
-	    ["KR"] = "Korean", -- Coreia do Sul
-	
-	    -- Mandarin
-	    ["CN"] = "Mandarin", -- China
-	    ["HK"] = "Mandarin", -- Hong Kong
-	    ["MO"] = "Mandarin", -- Macau
-	    ["MY"] = "Mandarin", -- Malásia
-	    ["SG"] = "Mandarin", -- Singapura
-	    ["TW"] = "Mandarin", -- Taiwan
-	
-	    -- Norwegian
-	    ["NO"] = "Norwegian", -- Noruega
-	
-	    -- Persian
-	    ["IR"] = "Persian", -- Irã
-	
-	    -- Polish
-	    ["PL"] = "Polish", -- Polônia
-	
-	    -- Portuguese
-	    ["AO"] = "Portuguese", -- Angola
-	    ["BR"] = "Portuguese", -- Brasil
-	    ["CV"] = "Portuguese", -- Cabo Verde
-	    ["GW"] = "Portuguese", -- Guiné-Bissau
-	    ["MZ"] = "Portuguese", -- Moçambique
-	    ["PT"] = "Portuguese", -- Portugal
-	    ["ST"] = "Portuguese", -- São Tomé e Príncipe
-	    ["TL"] = "Portuguese", -- Timor-Leste
-	
-	    -- Russian
-	    ["BY"] = "Russian", -- Belarus
-	    ["KG"] = "Russian", -- Quirguistão
-	    ["KZ"] = "Russian", -- Cazaquistão
-	    ["RU"] = "Russian", -- Rússia
-	    ["UA"] = "Russian", -- Ucrânia
-	
-	    -- Spanish
-	    ["AR"] = "Spanish", -- Argentina
-	    ["BO"] = "Spanish", -- Bolívia
-	    ["CL"] = "Spanish", -- Chile
-	    ["CO"] = "Spanish", -- Colômbia
-	    ["CR"] = "Spanish", -- Costa Rica
-	    ["CU"] = "Spanish", -- Cuba
-	    ["DO"] = "Spanish", -- República Dominicana
-	    ["EC"] = "Spanish", -- Equador
-	    ["ES"] = "Spanish", -- Espanha
-	    ["GT"] = "Spanish", -- Guatemala
-	    ["HN"] = "Spanish", -- Honduras
-	    ["MX"] = "Spanish", -- México
-	    ["NI"] = "Spanish", -- Nicarágua
-	    ["PA"] = "Spanish", -- Panamá
-	    ["PE"] = "Spanish", -- Peru
-	    ["PR"] = "Spanish", -- Porto Rico
-	    ["PY"] = "Spanish", -- Paraguai
-	    ["SV"] = "Spanish", -- El Salvador
-	    ["UY"] = "Spanish", -- Uruguai
-	    ["VE"] = "Spanish", -- Venezuela
-	
-	    -- Swedish
-	    ["SE"] = "Swedish", -- Suécia
-	
-	    -- Thai
-	    ["TH"] = "Thai", -- Tailândia
-	
-	    -- Turkish
-	    ["TR"] = "Turkish", -- Turquia
-	
-	    -- Urdu
-	    ["PK"] = "Urdu", -- Paquistão
-	
-	    -- Vietnamese
-	    ["VN"] = "Vietnamese", -- Vietnã
-	}
-	
-	for _, Lang in pairs(Languages) do
-	    local success, data = pcall(function()
-	        return loadstring(game:HttpGet("https://raw.githubusercontent.com/SomeoneScripts/Main/refs/heads/main/Translation%20System/Languages/"..Lang..".lua"))()
-	    end)
-		if success and data then
-		    Translations[Lang] =  data
-		end
-	end
-	for Country, Lang in pairs(CountryToLang) do
-	    Translations[Country] = Translations[Lang]
-	end
+Languages = {
+    Afrikaans = "af",
+    Albanian = "sq",
+    Arabic = "ar",
+    Armenian = "hy",
+    Azerbaijani = "az",
+    Basque = "eu",
+    Belarusian = "be",
+    Bengali = "bn",
+    Bosnian = "bs",
+    Bulgarian = "bg",
+    Catalan = "ca",
+    Cebuano = "ceb",
+    ChineseSimplified = "zh-CN",
+    ChineseTraditional = "zh-TW",
+    Croatian = "hr",
+    Czech = "cs",
+    Danish = "da",
+    Dutch = "nl",
+    English = "en",
+    Esperanto = "eo",
+    Estonian = "et",
+    Filipino = "tl",
+    Finnish = "fi",
+    French = "fr",
+    Galician = "gl",
+    Georgian = "ka",
+    German = "de",
+    Greek = "el",
+    Gujarati = "gu",
+    HaitianCreole = "ht",
+    Hebrew = "he",
+    Hindi = "hi",
+    Hungarian = "hu",
+    Icelandic = "is",
+    Indonesian = "id",
+    Irish = "ga",
+    Italian = "it",
+    Japanese = "ja",
+    Javanese = "jv",
+    Kannada = "kn",
+    Kazakh = "kk",
+    Khmer = "km",
+    Korean = "ko",
+    Kurdish = "ku",
+    Kyrgyz = "ky",
+    Lao = "lo",
+    Latin = "la",
+    Latvian = "lv",
+    Lithuanian = "lt",
+    Luxembourgish = "lb",
+    Macedonian = "mk",
+    Malagasy = "mg",
+    Malay = "ms",
+    Malayalam = "ml",
+    Maltese = "mt",
+    Maori = "mi",
+    Marathi = "mr",
+    Mongolian = "mn",
+    Nepali = "ne",
+    Norwegian = "no",
+    Persian = "fa",
+    Polish = "pl",
+    Portuguese = "pt",
+    Punjabi = "pa",
+    Romanian = "ro",
+    Russian = "ru",
+    Serbian = "sr",
+    Sinhala = "si",
+    Slovak = "sk",
+    Slovenian = "sl",
+    Somali = "so",
+    Spanish = "es",
+    Sundanese = "su",
+    Swahili = "sw",
+    Swedish = "sv",
+    Tamil = "ta",
+    Telugu = "te",
+    Thai = "th",
+    Turkish = "tr",
+    Ukrainian = "uk",
+    Urdu = "ur",
+    Uzbek = "uz",
+    Vietnamese = "vi",
+    Welsh = "cy",
+    Xhosa = "xh",
+    Yiddish = "yi",
+    Yoruba = "yo",
+    Zulu = "zu"
+}
