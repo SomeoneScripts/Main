@@ -36,34 +36,6 @@ local RenderStepped = RunService.RenderStepped
 
 local ProtectGui = protectgui or (syn and syn.protect_gui) or function() end
 
-local LocalizationService: LocalizationService = game:GetService("LocalizationService")
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/SomeoneScripts/Main/refs/heads/main/Translation%20System/Translate.txt"))()
-
-function GetLocalLanguage(): string?
-    if Settings and Settings["Translate"] then
-        if Translations[Settings["Language"]] then
-            return Settings["Language"]
-        end
-        local success, country = pcall(function()
-            return LocalizationService:GetCountryRegionForPlayerAsync(LocalPlayer)
-        end)
-        if success and country and Translations[country] then
-            return country
-        end
-    end
-    return nil
-end
-
-local lang: string? = GetLocalLanguage()
-
-function Translate(Phrase)
-    local GameId = tostring(game.GameId)
-    local LangTable = Translations[lang] and Translations[lang][GameId]
-    if not LangTable then return Phrase end
-    return LangTable[Phrase] or Phrase
-end
-
 local Themes = {
 	Names = {
 		"Dark",
@@ -2246,7 +2218,7 @@ Components.Element = (function()
 
 		Element.TitleLabel = New("TextLabel", {
 			FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Medium, Enum.FontStyle.Normal),
-			Text = Translate(Title),
+			Text = Title,
 			TextColor3 = Color3.fromRGB(240, 240, 240),
 			TextSize = 13,
 			TextXAlignment = Enum.TextXAlignment.Left,
@@ -2296,7 +2268,7 @@ Components.Element = (function()
 
 		Element.DescLabel = New("TextLabel", {
 			FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json"),
-			Text = Translate(Desc),
+			Text = Desc,
 			TextColor3 = Color3.fromRGB(200, 200, 200),
 			TextSize = 12,
 			TextWrapped = true,
@@ -2360,7 +2332,7 @@ Components.Element = (function()
 		})
 
 		function Element:SetTitle(Set)
-			Element.TitleLabel.Text = Translate(Set)
+			Element.TitleLabel.Text = Set
 			local hasTitle = (Set ~= nil and Set ~= "")
 			Element.Header.Visible = hasTitle
 
@@ -2445,7 +2417,7 @@ Components.Element = (function()
 			else
 				Element.DescLabel.Visible = true
 			end
-			Element.DescLabel.Text = Translate(Set)
+			Element.DescLabel.Text = Set
 			if Library.Window and Library.Window.AllElements and Library.Window.AllElements[Element.Frame] then
 				Library.Window.AllElements[Element.Frame].description = Set
 			elseif Library.Windows and #Library.Windows > 0 then
@@ -11118,286 +11090,3 @@ end)
 
 
 
-local Window = Fluent:CreateWindow({
-    Title = "Fluent Plus Example",
-    SubTitle = "<gradient:#FF0000:#FF7F00:#FFFF00:#00FF00:#0000FF:#4B0082:#9400D3>Complete Example Interface</gradient>",
-    Icon = "home", -- Small icon in window title bar (Lucide icon name or rbxassetid:// URL)
-    -- Image = "rbxassetid://10723407389", -- Large image/icon above in tab list (does not support lucide icons) (rbxassetid:// URL)
-	-- BackgroundImage = "rbxassetid://100061945294594",
-    -- BackgroundTransparency = 0, -- Transparency of window background
-    -- BackgroundImageTransparency = 0, -- Transparency of background image (0 = fully visible, 1 = invisible). Lower values make image more visible
-	DropdownsOutsideWindow = true,
-    Size = UDim2.fromOffset(700, 550),
-    TabWidth = 180,
-    Acrylic = true, -- Enable blur effect
-    Theme = "Dark", -- Default theme from theme list
-    Search = true, -- Enable/disable element search, default true
-    MinimizeKey = Enum.KeyCode.LeftControl, -- Key to minimize
-
-    -- UserInfo = true, -- Show user information
-    -- UserInfoTitle = game.Players.LocalPlayer.Name,
-    -- UserInfoSubtitle = "Premium User",
-    -- UserInfoSubtitleColor = Color3.fromRGB(255, 215, 0),
-    -- UserInfoTop = false -- Place information at top (false = bottom)
-})
-
--- Create tabs with icons
-local Tabs = {
-    Main = Window:AddTab({ Title = "Main", Icon = "home" }),
-    Combat = Window:AddTab({ Title = "Combat", Icon = "sword" }),
-    Visuals = Window:AddTab({ Title = "Visuals", Icon = "eye" }),
-    Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
-}
-
-local SubTabs = {
-    --Main1 = Tabs.Main:AddSubTab("example", "home"),
-    --Main2 = Tabs.Main:AddSubTab("example", "home"),
-}
-
-Window:SelectTab(1)
-
--- ==========================================
--- MAIN TAB
--- ==========================================
-
-local MainSection = Tabs.Main:AddSection("Main Features", "home")
-local InfoSection = Tabs.Main:AddSection("Information")
-
--- Button with all options
-local MyButton = MainSection:AddButton({
-    Title = "Click Me",
-    Description = "click me bro",
-    Icon = "settings",
-    Visible = true,
-    Callback = function()
-		Window:Dialog({
-			Title = "Confirmation",
-			Content = "Are you sure you want to continue?",
-			Buttons = {
-				{
-					Title = "Yes",
-					Callback = function()
-						print("User clicked Yes")
-					end
-				},
-				{
-					Title = "No",
-					Callback = function()
-						print("User clicked No")
-					end
-				}
-			}
-		})
-    end
-})
-
--- Toggle with all options
-local MyToggle = MainSection:AddToggle("MyToggle", {
-    Title = "Enable Feature",
-    Description = "Enables or disables the feature",
-    Default = false,
-    Icon = "toggle-right",
-    Visible = true,
-    Callback = function(Value)
-        print("Toggle:", Value)
-    end
-})
-
-MyToggle:OnChanged(function(Value)
-    print("Toggle changed:", Value)
-end)
-
--- Paragraph with all options
-local MyParagraph = InfoSection:AddParagraph({
-    Title = "Information",
-    Content = "This is a long text that displays as a paragraph. It can contain multiple lines and will automatically wrap.",
-    Icon = "info",
-    Visible = true
-})
-
--- Paragraph without title (icon moves to content area)
-local SimpleParagraph = InfoSection:AddParagraph({
-    Content = "This is a simple paragraph without title.",
-    Icon = "settings"
-})
-
--- ==========================================
--- COMBAT TAB
--- ==========================================
-
-local CombatSection = Tabs.Combat:AddSection("Combat Features", "sword")
-local TargetSection = Tabs.Combat:AddSection("Targeting", "crosshair")
-
--- Dropdown - Regular
-local TargetDropdown = TargetSection:AddDropdown("TargetDropdown", {
-    Title = "Target",
-    Description = "Select target for attack",
-    Values = { "Nearest", "Weakest", "Strongest", "Random" },
-    Default = "Nearest",
-    Multi = false,
-    AllowNull = false,
-    Search = true,
-    KeepSearch = false,
-    Icon = "list",
-    Visible = true,
-    Callback = function(Value)
-        print("Target selected:", Value)
-    end
-})
-
--- Dropdown - Multiple selection
-local MultiDropdown = TargetSection:AddDropdown("MultiDropdown", {
-    Title = "Select Multiple",
-    Description = "Can select multiple options",
-    Values = { "Option A", "Option B", "Option C", "Option D" },
-    Default = {},
-    Multi = true,
-    AllowNull = true,
-    Search = true,
-    Callback = function(Value)
-        print("Selected values:", #Value)
-        for _, v in pairs(Value) do
-            print("-", v)
-        end
-    end
-})
-
--- Slider
-local DamageSlider = CombatSection:AddSlider("DamageSlider", {
-    Title = "Damage",
-    Description = "Damage multiplier",
-    Default = 1.0,
-    Min = 0.1,
-    Max = 10.0,
-    Rounding = 1,
-    Icon = "sword",
-    Visible = true,
-    Callback = function(Value)
-        print("Damage set:", Value)
-    end
-})
-
-DamageSlider:OnChanged(function(Value)
-    print("Damage changed:", Value)
-end)
-
--- Keybind
-local AttackKeybind = CombatSection:AddKeybind("AttackKeybind", {
-    Title = "Attack Key",
-    Description = "Click to set key",
-    Default = "F",
-    Mode = "Hold", -- "Toggle", "Hold", "Always"
-    Icon = "keyboard",
-    Visible = true,
-    Callback = function(Value)
-        if Value then
-            print("Attack activated")
-        end
-    end,
-    ChangedCallback = function(Key)
-        print("Key changed to:", Key)
-    end
-})
-
-AttackKeybind:OnClick(function(Value)
-    print("Key pressed:", Value)
-end)
-
-AttackKeybind:OnChanged(function(Key)
-    print("Key changed:", Key)
-end)
-
--- Input
-local PlayerNameInput = CombatSection:AddInput("PlayerNameInput", {
-    Title = "Player Name",
-    Description = "Enter target player name",
-    Default = "",
-    Placeholder = "Enter name...",
-    Numeric = false,
-    Finished = false,
-    MaxLength = 50,
-    Icon = "type",
-    Visible = true,
-    Callback = function(Value)
-        print("Name entered:", Value)
-    end
-})
-
-PlayerNameInput:OnChanged(function(Value)
-    print("Text changed:", Value)
-end)
-
--- ==========================================
--- VISUALS TAB
--- ==========================================
-
-local ESPSection = Tabs.Visuals:AddSection("ESP Settings", "eye")
-local ColorSection = Tabs.Visuals:AddSection("Colors", "palette")
-
--- Colorpicker without transparency
-local ESPColor = ColorSection:AddColorpicker("ESPColor", {
-    Title = "ESP Color",
-    Description = "Select ESP color",
-    Default = Color3.fromRGB(255, 0, 0),
-    Transparency = 0,
-    Icon = "palette",
-    Visible = true,
-    Callback = function(Color)
-        print("ESP color changed:", Color)
-    end
-})
-
-ESPColor:OnChanged(function(Color)
-    print("Color changed:", Color)
-end)
-
--- Colorpicker with transparency
-local ColorWithAlpha = ColorSection:AddColorpicker("ColorWithAlpha", {
-    Title = "Color with Transparency",
-    Description = "Pick color and transparency",
-    Default = Color3.fromRGB(100, 150, 255),
-    Transparency = 0.5,
-    Callback = function(Color, Alpha)
-        print("Color:", Color, "Transparency:", Alpha)
-    end
-})
-
--- CreateMinimizer
-local Minimizer = Fluent:CreateMinimizer({
-    Size = UDim2.fromOffset(40, 40),
-    Position = UDim2.new(0, 20, 0, 20),
-    Icon = "menu",
-    Acrylic = true,
-    Corner = 12,
-    Draggable = true,
-    Visible = true
-})
-
--- Hand the library over to our managers
-SaveManager:SetLibrary(Fluent)
-InterfaceManager:SetLibrary(Fluent)
-
--- Ignore keys that are used by ThemeManager.
--- (we dont want configs to save themes, do we?)
-SaveManager:IgnoreThemeSettings()
-
--- You can add indexes of elements the save manager should ignore
-SaveManager:SetIgnoreIndexes({})
-
--- use case for doing it this way:
--- a script hub could have themes in a global folder
--- and game configs in a separate folder per game
-InterfaceManager:SetFolder("FluentScriptHub")
-SaveManager:SetFolder("FluentScriptHub/specific-game")
-
-InterfaceManager:BuildInterfaceSection(Tabs.Settings)
-SaveManager:BuildConfigSection(Tabs.Settings)
-
-Fluent:Notify({
-    Title = "Fluent",
-    Content = "Example loaded successfully!",
-    Duration = 5
-})
-
-if RunService:IsStudio() then task.wait(0.01) end
-return Library, SaveManager, InterfaceManager, Mobile
