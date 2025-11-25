@@ -57,7 +57,26 @@ return {
         ["the most fashionable"] = "O Mais Fashion",
         ["the most tech-savvy"] = "O Mais Tech",
         ["the biggest coffee addict"] = "O Mais Viciado em Café",
-        ["script community; there you can find people and more information about the script"] = "Comunidade Do Script; Lá Você Pode Encontrar Pessoas E Mais Informações Sobre O Roteiro.",
+        -- Social--
+        ["online"] = "On-line",
+        ["member count"] = "Contagem De Membros",
+        -- Main --
+        ["attack aura"] = "Ataque Em Área",
+        ["select radius"] = "Selecione O Raio",
+        ["attack enemies"] = "Atacar Inimigos",
+        ["chop trees"] = "Cortar Árvores",
+        ["bring"] = "Trazer",
+        ["bring fuel"]= "Trazer Combustível",
+        ["bring food"] = "Trazer Comida",
+        ["bring equipments"] = "Trazer Combustível",
+        ["bring medical items"] = "Trazer Medicamentos",
+        ["bring scrap metal"] = "Trazer Sucata Metálica",
+        -- Teleport --
+        -- Player --
+        ["select walk speed"] = "Selecione A Velocidade De Caminhada",
+        ["change walk speed"] = "Alterar A Velocidade De Caminhada",
+        -- Visual --
+        -- Theme
         ["select the language"] = "Selecione O Idioma",
         ["translate"] = "Traduzir",
     }
