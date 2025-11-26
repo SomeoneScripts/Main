@@ -1,13 +1,6 @@
+local Url = "https://raw.githubusercontent.com/SomeoneScripts/Main/refs/heads/main/TranslationSystem/Languages/Portuguese"
 return {
-    ["7326934954"] = { -- 99 Nights In The Forest
-        ["vortex hub - 99 nights in the forest"] = "Vortex Hub - 99 Noites Na Floresta",
-        ["developed by vortex team"] = "Desenvolvido Pela Equipe  Vortex",
-        ["social media"] = "Mídias Sociais",
-        ["main"] = "Principal",
-        ["teleport"] = "Teletransportar",
-        ["player"] = "Jogador",
-        ["visual"] = "Visual",
-        ["ui settings"] = "Configurações Da Interface",
+	["Universal"] = {
         ["the most loved"] = "O Mais Amado",
         ["the most honored"] = "O Mais Honrado",
         ["the most handsome"] = "O Mais Cheiroso",
@@ -57,27 +50,18 @@ return {
         ["the most fashionable"] = "O Mais Fashion",
         ["the most tech-savvy"] = "O Mais Tech",
         ["the biggest coffee addict"] = "O Mais Viciado em Café",
-        -- Social--
-        ["online"] = "On-line",
-        ["member count"] = "Contagem De Membros",
-        -- Main --
-        ["attack aura"] = "Ataque Em Área",
-        ["select radius"] = "Selecione O Raio",
-        ["attack enemies"] = "Atacar Inimigos",
-        ["chop trees"] = "Cortar Árvores",
-        ["bring"] = "Trazer",
-        ["bring fuel"]= "Trazer Combustível",
-        ["bring food"] = "Trazer Comida",
-        ["bring equipments"] = "Trazer Combustível",
-        ["bring medical items"] = "Trazer Medicamentos",
-        ["bring scrap metal"] = "Trazer Sucata Metálica",
-        -- Teleport --
-        -- Player --
-        ["select walk speed"] = "Selecione A Velocidade De Caminhada",
-        ["change walk speed"] = "Alterar A Velocidade De Caminhada",
-        -- Visual --
-        -- Theme
+        ["developed by vortex team"] = "Desenvolvido Pela Equipe  Vortex",
+		["social media"] = "Mídias Sociais",
+		["information"] = "Informações",
+        ["main"] = "Principal",
+        ["teleport"] = "Teletransporte",
+        ["player"] = "Jogador",
+        ["visual"] = "Visual",
+        ["ui settings"] = "Configurações Da Interface",
         ["select the language"] = "Selecione O Idioma",
         ["translate"] = "Traduzir",
-    }
+        ["online"] = "On-line",
+        ["member count"] = "Contagem De Membros",
+	},
+    ["994732206"] = loadstring(game:HttpGet(Url.."/994732206.lua"))(),
 }
