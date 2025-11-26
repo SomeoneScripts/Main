@@ -60,8 +60,10 @@ return {
         ["ui settings"] = "Configurações Da Interface",
         ["select the language"] = "Selecione O Idioma",
         ["translate"] = "Traduzir",
+        ["vortex hub community is a hub for sharing scripts."] = "A Comunidade Vortex Hub É Um Espaço Para Compartilhamento De Scripts.",
         ["online"] = "On-line",
         ["member count"] = "Contagem De Membros",
+        ["interface"] = "Interface",
 	},
-    ["994732206"] = loadstring(game:HttpGet(Url.."/994732206.lua"))(),
+    ["994732206"] = loadstring(game:HttpGet(Url.."/7326934954.lua"))(),
 }
