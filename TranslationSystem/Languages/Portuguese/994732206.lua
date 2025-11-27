@@ -247,6 +247,8 @@
 		["fruit rain"] = "Chuva De Frutas",
 		["ice walk"] = "Andar Sobre O Gelo",
 		["magma walk"] = "Andar Sobre A Magma",
+		["spawned"] = "Gerada",
+		["dropped"] = "Derrubada",
 		-- Settings --
 		["main settings"] = "Configurações Principais",
 		["select weapon"] = "Selecione A Arma",
@@ -260,4 +262,11 @@
         ["turn on race v3"] = "Ligar Raça V3",
         ["turn on race v4"] = "Ligar Raça V4",
         ["turn on observation haki"] = "Ligar Haki Da Observação",
+        ["menu"] = "Menu",
+		["open the fruit shop normal"] = "Abrir A Loja Normal De Frutas.",
+		["open the fruit shop advanced"] = "Abra A Loja Avançada De Frutas",
+		["open titles menu"] = "Abrir Menu Dos Títulos",
+		["team"] = "Equipe",
+		["join pirates"] ="Junte-se Aos Piratas",
+		["join marines"] "Juntar-se Aos Marinheiros",
 	}

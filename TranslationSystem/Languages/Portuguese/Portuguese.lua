@@ -65,6 +65,7 @@ return {
         ["online"] = "On-line",
         ["member count"] = "Contagem De Membros",
         ["interface"] = "Interface",
+        ["eyes"] = " Olhos",
 	},
     ["994732206"] = loadstring(game:HttpGet(Url.."/994732206.lua"))(),
 }
