@@ -58,6 +58,7 @@ return {
         ["player"] = "Jogador",
         ["visual"] = "Visual",
         ["ui settings"] = "Configurações Da Interface",
+        ["settings"] = "Configurações",
         ["select the language"] = "Selecione O Idioma",
         ["translate"] = "Traduzir",
         ["vortex hub community is a hub for sharing scripts."] = "A Comunidade Vortex Hub É Um Espaço Para Compartilhamento De Scripts.",
