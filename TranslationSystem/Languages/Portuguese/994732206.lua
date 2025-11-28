@@ -268,5 +268,5 @@
 		["open titles menu"] = "Abrir Menu Dos Títulos",
 		["team"] = "Equipe",
 		["join pirates"] ="Junte-se Aos Piratas",
-		["join marines"] "Juntar-se Aos Marinheiros",
+		["join marines"] = "Juntar-se Aos Marinheiros",
 	}
