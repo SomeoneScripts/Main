@@ -262,7 +262,7 @@
 		["ice walk"] = "Andar Sobre O Gelo",
 		["magma walk"] = "Andar Sobre A Magma",
 		["spawned"] = "Gerada",
-		["dropped"] = "Derrubada",
+		["dropped"] = "Solta",
 		-- Settings --
 		["main settings"] = "Configurações Principais",
 		["select weapon"] = "Selecione A Arma",
