@@ -66,6 +66,10 @@ return {
         ["member count"] = "Contagem De Membros",
         ["interface"] = "Interface",
         ["eyes"] = " Olhos",
+        ["select walk speed"] = "Selecione A Velocidade De Caminhada",
+        ["change walk speed"] = "Alterar A Velocidade De Caminhada",
+        ["extra sensory perception"] = "Percepção Extra Sensorial",
 	},
     ["994732206"] = loadstring(game:HttpGet(Url.."/994732206.lua"))(),
+    ["7709344486"] = loadstring(game:HttpGet(URL.."/7709344486.lua"))()
 }
