@@ -71,5 +71,5 @@ return {
         ["extra sensory perception"] = "Percepção Extra Sensorial",
 	},
     ["994732206"] = loadstring(game:HttpGet(Url.."/994732206.lua"))(),
-    ["7709344486"] = loadstring(game:HttpGet(URL.."/7709344486.lua"))()
+    ["7709344486"] = loadstring(game:HttpGet(Url.."/7709344486.lua"))()
 }
