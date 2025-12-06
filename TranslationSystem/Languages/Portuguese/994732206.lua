@@ -65,6 +65,16 @@
 		["apple"] = "Maçã",
 		["banana"] = "Banana",
 		["pineapple"] = "Abacaxi",
+		-- Stats --
+		["automatic statistics"] = "Estatísticas Automáticas",
+		["select points amount"] = "Selecione A Quantidade De Pontos",
+		["add statistics"] = "Adicionar Estatísticas",
+		["add to melee"] = "Adicionar Ao Soco",
+		["add to defense"] = "Adicionar À Defesa",
+		["add to sword"] = "Adicionar À Espada",
+		["add to gun"] = "Adicionar À Arma",
+		["add to blox fruit"] = "Adicionar Ao Blox Fruit",
+		["aimbot gun tap"] = "Aimbot Tapa Da Arma",
 		-- Social Media --
 		-- Info --
 		["server information"] = "Inflamações Do Servidor",
