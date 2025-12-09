@@ -1,5 +1,6 @@
 	return { -- Blox Fruits
 		-- Others --
+		["statistics"] = "Estatísticas",
 		["quests & items"] = "Missões & Itens",
 		["fishing"] = "Pescar",
 		["sea events"] = "Eventos Marítimos",
@@ -83,6 +84,7 @@
 		["fruits on map"] = "Frutas No Mapa",
 		["berries on map"] = "Bagas No Mapa",
 		["haki color recipes"] = "Receita De Cor De Haki",
+		["legendary sword: nome"] = "Espada Lendária: Nenhuma",
 		["defeat more enemies"] = "Derrote Mais Inimigos",
 		["dimension status"] = "Dimensão",
 		["kitsune island: not spawned"] = "Ilha Da Kitsune: Não Gerada",
@@ -295,4 +297,6 @@
 		["team"] = "Equipe",
 		["join pirates"] ="Junte-se Aos Piratas",
 		["join marines"] = "Juntar-se Aos Marinheiros",
+		["select team"] = "Selecionar Equipe",
+		["choose Team"] = "Escolher Equipe",
 	}
