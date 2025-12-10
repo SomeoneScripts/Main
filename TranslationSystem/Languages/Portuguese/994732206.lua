@@ -298,5 +298,5 @@
 		["join pirates"] ="Junte-se Aos Piratas",
 		["join marines"] = "Juntar-se Aos Marinheiros",
 		["select team"] = "Selecionar Equipe",
-		["choose Team"] = "Escolher Equipe",
+		["choose team"] = "Escolher Equipe",
 	}
