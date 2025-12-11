@@ -1,11 +1,11 @@
 return { -- After 3 Am
-	["Vortex Hub - After 3 Am"] = "Depois Das 3 Horas Da Manhã",
+	["vortex hub - after 3 am"] = "Depois Das 3 Horas Da Manhã",
 	-- Main --
-	["Get Tools"] = "Pegar Ferramentas",
-	["Update Tools List"] = "Atualizar Lista De Ferramentas",
-	["Select Tool"] = "Pegar Ferramentas",
-	["Get Tool"] = "Pegar Ferramenta",
+	["get tools"] = "Pegar Ferramentas",
+	["update tools list"] = "Atualizar Lista De Ferramentas",
+	["select tool"] = "Pegar Ferramentas",
+	["get tool"] = "Pegar Ferramenta",
 	-- Visual --
-	["Lighting"] = "Iluminação",
-	["Full Day"] = "Sempre Dia",
+	["lighting"] = "Iluminação",
+	["full day"] = "Sempre Dia",
 }
