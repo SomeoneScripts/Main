@@ -7,5 +7,11 @@ return { -- After 3 Am
 	["get tool"] = "Pegar Ferramenta",
 	-- Visual --
 	["lighting"] = "Iluminação",
+	["esp players"] = "ESP Jogadores",
+	["esp shadow man"] = "ESP Homem Das Sombras",
+	["chase"] = "Perseguindo",
+	["patrol"] = "Patrulhando",
+	["n/a"] = "Nenhum",
+	["teleporting"] = "Teleportando",
 	["full day"] = "Sempre Dia",
 }
