@@ -70,5 +70,7 @@ return {
         ["change walk speed"] = "Alterar A Velocidade De Caminhada",
         ["extra sensory perception"] = "Percepção Extra Sensorial",
 	},
-    ["7120911607"] = loadstring(game:HttpGet(Url.."/7120911607.lua"))()
+    ["7120911607"] = loadstring(game:HttpGet(Url.."/7120911607.lua"))(),
+    ["994732206"] = loadstring(game:HttpGet(Url.."/994732206.lua"))(),
+    ["7709344486"] = loadstring (game:HttpGet(Url.."/7709344486.lua"))()
 }
