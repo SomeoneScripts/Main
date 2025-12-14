@@ -1,6 +1,6 @@
 local Url = "https://raw.githubusercontent.com/SomeoneScripts/Main/refs/heads/main/Games/"
 local Ids = {
-	["994732206"] = Url.."BloxFruits.lua",
+	["994732206"] = Url.."VolleyballLegends.lua",
 }
 
 if Ids[tostring(game.GameId)] then
