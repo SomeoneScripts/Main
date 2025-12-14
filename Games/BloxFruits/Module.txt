@@ -48,7 +48,7 @@
 	SecondFolderPath = FirstFolderPath.."/"..GameNameFolder
 	SaveFile = SecondFolderPath.."/"..FilePrefix.." - ".. Username..".json"
 	
-	local S = {
+	S = {
 		-- Social --
 		-- Stats --
 		["Select Points Amount"] = 3,
@@ -1035,4 +1035,5 @@
 	if Sea3 and WorkerSpeak("AskKilledTikiBoss") then
 		table.insert(MaterialList, "Volt Capsule")
 	end
+
 	table.sort(MaterialList, function(a, b) return a:lower() < b:lower() end)
