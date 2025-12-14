@@ -2649,7 +2649,7 @@ function redzlib:AddWindow(Configs)
 				TextXAlignment = "Left",
 				BackgroundTransparency = 1,
 				TextSize = 10,
-				Text = Invite
+				Text = "discord.gg/"..Invite
 			})
 			
 			local FrameHolder = InsertTheme(Create("Frame", InviteHolder, {
@@ -2693,7 +2693,7 @@ function redzlib:AddWindow(Configs)
 			local JoinButton = Create("TextButton", FrameHolder, {
 				Size = UDim2.new(1, -14, 0, 16),
 				AnchorPoint = Vector2.new(0.5, 1),
-				Position = UDim2.new(0.5, 0, 1, -7),
+				Position = UDim2.new(0.5, 0, 1, -2),
 				Text = Translate("Join"),
 				Font = Enum.Font.GothamBold,
 				TextSize = 12,
@@ -2703,7 +2703,7 @@ function redzlib:AddWindow(Configs)
 			
 			local ClickDelay
 			JoinButton.Activated:Connect(function()
-				setclipboard(Invite)
+				setclipboard("discord.gg/"..Invite)
 				if ClickDelay then return end
 				
 				ClickDelay = true
@@ -2733,7 +2733,7 @@ function redzlib:AddWindow(Configs)
 		
 			local Title = Translate(Info.Name or "Game")
 			local Desc = Translate(Info.Description or "")
-			local Logo = "rbxthumb://type=PlaceIcon&id="..PlaceId.."&w=150&h=150"
+			local Logo = Info.IconImageAssetId or 0
 		
 			local GameHolder = Create("Frame", Container, {
 				Size = UDim2.new(1, 0, 0, 80),
@@ -2751,7 +2751,7 @@ function redzlib:AddWindow(Configs)
 			local ImageLabel = Create("ImageLabel", FrameHolder, {
 				Size = UDim2.new(0, 30, 0, 30),
 				Position = UDim2.new(0, 7, 0, 7),
-				Image = Logo,
+				Image = "rbxassetid://"..Logo,
 				BackgroundTransparency = 1
 			})Make("Corner", ImageLabel, UDim.new(0, 4))Make("Stroke", ImageLabel)
 		
