@@ -20,7 +20,7 @@ function Translate(text)
         if lang and lang.Universal and lang.Universal[textLower] then
             final = lang.Universal[textLower]
         else
-            local gameId = tostring(g.GameId)
+            local gameId = tostring(game.GameId)
             local langTbl = lang and lang[gameId]
             if langTbl and langTbl[textLower] then
                 final = langTbl[textLower]
