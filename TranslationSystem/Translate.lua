@@ -1,8 +1,8 @@
 	Translations = {
 	    Languages = {
 	        "Portuguese",
-	        --"Thai",
-	        --"Vietnamese"
+	        "Thai",
+	        "Vietnamese"
 	    },
 	}
 	
@@ -17,3 +17,4 @@
 	    end
 
 	end
+
