@@ -21,7 +21,7 @@ return {
 	},
 	["994732206"] = { -- Blox Fruits
 		-- Others --
-		["quests & items"] "Missões & Itens",
+		["quests & items"] = "Missões & Itens",
 		["sea events"] = "Eventos Marítimos",
 		["islands"] = "Ilhas",
 		["fishing"] = "Pescar",
@@ -285,4 +285,5 @@ return {
 		["esp blue gear"] = "ESP Engrenagem Azul",
 		["esp real fruits"] = "ESP Frutas Reais",
 	},
+
 }
