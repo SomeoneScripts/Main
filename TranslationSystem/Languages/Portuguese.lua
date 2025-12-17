@@ -86,6 +86,11 @@ return {
 		["hop to find elite hunters"] = "Mudar de Servidor Para Encontrar Caçadores Elite",
 		["select material"] = "Selecionar Material",
 		["farm material"] = "Farmar Material",
+		["mastery"] = "Maestria",
+		["select weapon to farm mastery"] = "Selecione Arma Para Farmar Maestria",
+		["select health [%]"] = "Selecionar Vida [%]",
+		["select skills"] = "Selecionar Habilidades",
+		["farm mastery"] = "Farmar Maestria",
 		-- Quests --
 		["second sea"] = "Segundo Mar",
 		["unlock second sea"] = "Desbloquear Segundo Mar",
@@ -285,5 +290,4 @@ return {
 		["esp blue gear"] = "ESP Engrenagem Azul",
 		["esp real fruits"] = "ESP Frutas Reais",
 	},
-
 }
