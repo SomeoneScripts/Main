@@ -28,6 +28,9 @@ return {
 	    ["fruits & raid"] = "Trái Cây & Raid",
 	    ["race"] = "Chủng Tộc",
 	    ["shop"] = "Mua",
+		-- Social --
+		["script launch"] = "Khởi chạy Script",
+		["script was launched with several features and support for translation in 3 languages: brazilian portuguese, vietnamese, and thai."] = "Script đã được khởi chạy với nhiều tính năng và hỗ trợ dịch sang 3 ngôn ngữ: tiếng Bồ Đào Nha Brazil, tiếng Việt và tiếng Thái",
 	    -- Settings --
 	    ["main settings"] = "Cài Đặt Chính",
 	    ["select weapon"] = "Chọn Vũ Khí",
@@ -49,6 +52,11 @@ return {
 	    ["join pirates"] = "Gia Nhập Hải Tặc",
 	    ["join marines"] = "Gia Nhập Hải Quân",
 	    ["select team"] = "Chọn Đội",
+		["job id"] = "Mã số công việc",
+		["enter the job id"] = "Nhập Mã số công việc.",
+		["join job id"] = "Đăng nhập vào Job ID",
+		["rejoin"] = "Nhập lại",
+		["server hop"] = "Máy chủ chuyển mạch",
 	    -- Main --
 	    ["main farm"] = "Chính",
 	    ["farm level"] = "Cày Level",

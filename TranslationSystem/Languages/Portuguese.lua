@@ -28,6 +28,9 @@ return {
 		["fruits & raid"] = "Frutas & Raid",
 		["race"] = "Raça",
 		["shop"] = "Comprar",
+		-- Social --
+		["script launch"] = "Lançamento Do Script",
+		["script was launched with several features and support for translation in 3 languages: brazilian portuguese, vietnamese, and thai."] = "Lançamento do script com diversas funcionalidades além de suporte para tradução para 3 idiomas: Português Do Brasil, Vietnamita e Tailandês",
 		-- Settings --
 		["main settings"] = "Configurações Principais",
 		["select weapon"] = "Selecionar Arma",
@@ -49,6 +52,11 @@ return {
 		["join pirates"] = "Entrar nos Piratas",
 		["join marines"] = "Entrar nos Fuzileiros",
 		["select team"] = "Selecionar Equipe",
+		["job id"] = "Job Id",
+		["enter the job id"] = "Digite O Job ID",
+		["join job id"] = "Entrar No Job ID",
+		["rejoin"] = "Reentrar",
+		["server hop"] = "Trocar Servidor",
 		-- Main --
 		["main farm"] = "Principal",
 		["farm level"] = "Farmar Nível",

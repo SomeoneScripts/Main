@@ -28,6 +28,9 @@ return {
 		["fruits & raid"] = "ผลไม้ & เรด",
 		["race"] = "เผ่าพันธุ์",
 		["shop"] = "ร้านค้า",
+		-- Social --
+		["script launch"] = "เปิดตัวสคริปต์",
+		["script was launched with several features and support for translation in 3 languages: brazilian portuguese, vietnamese, and thai."] = "สคริปต์ถูกเปิดตัวพร้อมคุณสมบัติมากมายและรองรับการแปลเป็น 3 ภาษา: โปรตุเกสบราซิล เวียดนาม และไทย",
 		-- Settings --
 		["main settings"] = "การตั้งค่าหลัก",
 		["select weapon"] = "เลือกอาวุธ",
@@ -49,6 +52,11 @@ return {
 		["join pirates"] = "เข้าร่วมโจรสลัด",
 		["join marines"] = "เข้าร่วมนาวิกโยธิน",
 		["select team"] = "เลือกทีม",
+		["job id"] = "รหัสงาน",
+		["enter the job id"] = "ป้อนรหัสงาน",
+		["join job id"] = "เข้าสู่ระบบด้วยรหัสงาน",
+		["rejoin"] = "กลับเข้าไปใหม่",
+		["server hop"] = "สวิตช์เซิร์ฟเวอร์",
 		-- Main --
 		["main farm"] = "หลัก",
 		["farm level"] = "ฟาร์มเลเวล",
