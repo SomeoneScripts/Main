@@ -4,6 +4,11 @@
 	        "Thai",
 	        "Vietnamese"
 	    },
+		Flags = {
+			["Portuguese"] = "5826570404",
+	        ["Thai"] = "89293437",
+	        ["Vietnamese"] = "9041883110",
+		},
 	}
 	
 	for _, Lang in ipairs(Translations.Languages) do
@@ -15,6 +20,4 @@
 	    if ok and data then
 	        Translations[Lang] = data
 	    end
-
 	end
-
