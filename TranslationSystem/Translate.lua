@@ -6,7 +6,7 @@
 	    },
 		Flags = {
 			["Portuguese"] = "5826570404",
-	        ["Thai"] = "89293437",
+	        ["Thai"] = "696723262",
 	        ["Vietnamese"] = "9041883110",
 		},
 	}
@@ -20,4 +20,5 @@
 	    if ok and data then
 	        Translations[Lang] = data
 	    end
+
 	end
