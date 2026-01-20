@@ -1799,7 +1799,7 @@ function Interface:SetFile(Path)
 end
 
 function Interface:DelFile()
-	if isfile(self.File)
+	if isfile(self.File) then
 		delfile(self.File)
 	end
 end
