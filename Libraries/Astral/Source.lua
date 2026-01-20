@@ -1,5 +1,5 @@
 Players = game:GetService("Players")
-UserInputService = UserInputService
+UserInputService = game:GetService("UserInputService")
 RunService = game:GetService("RunService")
 TweenService = game:GetService("TweenService")
 CoreGui = game:GetService("CoreGui")
@@ -14,7 +14,7 @@ isrbxactive = isrbxactive or function() return UserInputService:GetFocusedTextBo
 isgameactive = isgameactive or function() return RunService:IsRunning() end
 assert = assert or function(Value, Erro) if not Value then error(Erro) end end
 getcustomasset = getcustomasset or getsynasset or function(Value) print("Your Executor Does Not Support This Function.", Value) end
-IsMobile = table.find({Enum.Platform.IOS, Enum.Platform.Android}, UserInputService:GetPlatform()) ~= nil
+IsMobile = false
 
 Astral = {
 	Name = "Astral Library",
@@ -1222,6 +1222,10 @@ function Astral:AddWindow(Configs)
 			local TCallback = Configs.Callback or function() end
 		    local Toggled = TDefault
 		
+			if Toggled then
+				pcall(TCallback, Toggled)
+			end
+			
 		    local ToggleFrame = New("Frame", {Parent = TabPage, Size = UDim2.new(1, -5, 0, 45), BackgroundColor3 = Theme.Main, LayoutOrder = #Elements}, {BackgroundColor3 = "Main"})
 		    New("UICorner", {Parent = ToggleFrame})
 		    local TitleLabel = New("TextLabel", {Parent = ToggleFrame, Size = UDim2.new(0.6, -10, 0, 15), Position = UDim2.new(0, 10, 0, 8), BackgroundTransparency = 1, Text = TTitle, TextColor3 = Theme.Background, Font = Astral.SaveSettings.Font, TextSize = 12, TextXAlignment = "Left"}, {TextColor3 = "Background"})
@@ -1336,7 +1340,11 @@ function Astral:AddWindow(Configs)
 			local SCallback = Configs.Callback or function() end	
 			local Value = SDefault
 			local Dragging = false
-		
+			
+			if Value then
+				pcall(SCallback, Value)
+			end
+			
 		    local SliderFrame = New("Frame", {Parent = TabPage, Size = UDim2.new(1, -5, 0, 45), BackgroundColor3 = Theme.Main, LayoutOrder = #Elements}, {BackgroundColor3 = "Main"})
 		    New("UICorner", {Parent = SliderFrame})
 		    local TitleLabel = New("TextLabel", {Parent = SliderFrame, Size = UDim2.new(0.6, -10, 0, 15), Position = UDim2.new(0, 10, 0, 8), BackgroundTransparency = 1, Text = STitle, TextColor3 = Theme.Background, Font = Astral.SaveSettings.Font, TextSize = 12, TextXAlignment = "Left"}, {TextColor3 = "Background"})
@@ -1403,7 +1411,11 @@ function Astral:AddWindow(Configs)
 			local DCallback = Configs.Callback or function() end
 			local Selected = DMulti and {} or DDefault
 			local Opened = false
-		
+			
+			if Selected then
+				DCallback(Selected)
+			end
+			
 		    local DropdownFrame = New("Frame", {Parent = TabPage, Name = "Frame", Size = UDim2.new(1, -5, 0, 45), BackgroundColor3 = Theme.Main, LayoutOrder = #Elements, ZIndex = 1}, {BackgroundColor3 = "Main"})
 		    New("UICorner", {Parent = DropdownFrame})
 		    local TitleLabel = New("TextLabel", {Parent = DropdownFrame, Size = UDim2.new(0.6, -10, 0, 15), Position = UDim2.new(0, 10, 0, 8), BackgroundTransparency = 1, Text = DTitle, TextColor3 = Theme.Background, Font = Astral.SaveSettings.Font, TextSize = 12, TextXAlignment = "Left"}, {TextColor3 = "Background"})
@@ -1551,7 +1563,11 @@ function Astral:AddWindow(Configs)
 			local CCallback = Configs.Callback or function() end
 			local CDefault = typeof(Configs.Default) == "Color3" and Configs.Default or typeof(Configs.Default) == "string" and ColorsList[Configs.Default] or Color3.fromRGB(255,255,255)
 			local Opened, H, S, V = false, Color3.toHSV(CDefault)
-		
+			
+			if CDefault then
+				CCallback(CDefault)
+			end
+			
 		    local ColorFrame = New("Frame", {Parent = TabPage, Size = UDim2.new(1, -5, 0, 45), BackgroundColor3 = Theme.Main, LayoutOrder = #Elements, ZIndex = 1}, {BackgroundColor3 = "Main"})
 		    New("UICorner", {Parent = ColorFrame})
 		    local TitleLabel = New("TextLabel", {Parent = ColorFrame, AutomaticSize = "XY", Position = UDim2.new(0, 10, 0, 10), Size = UDim2.new(0, 0, 0, 0), BackgroundTransparency = 1, Text = CTitle, TextColor3 = Theme.Background, Font = Astral.SaveSettings.Font, TextSize = 12, TextXAlignment = "Left"}, {TextColor3 = "Background"})
@@ -1782,6 +1798,12 @@ function Interface:SetFile(Path)
 	self.File = Path
 end
 
+function Interface:DelFile()
+	if isfile(self.File)
+		delfile(self.File)
+	end
+end
+
 function Interface:SetDefault(Table)
 	self.Defaults = Table
 end
@@ -1843,6 +1865,7 @@ function Interface:Build(Configs)
 	local BFont = Configs.Fonts or true
 	local BTransparency = Configs.Transparency or true
 	local BAcrilic = Configs.Acrilic or true
+	local BResetButton = Configs.ResetConfigs or true
 	local Tab = self.Tab
 	Tab:AddSection({Name = "Interface Manager"})
 	if BTheme then
@@ -1854,6 +1877,15 @@ function Interface:Build(Configs)
 			Options = Astral.Themes.Names,
 			Callback = function(Value)
 				Astral:SetTheme(Value)
+			end
+		})
+	end
+	if BResetButton then
+		Tab:AddButton({
+			Title = "Reset Configs",
+			Description = "",
+			Callback = function()
+				Interface:DelFile()
 			end
 		})
 	end
