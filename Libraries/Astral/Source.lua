@@ -1232,7 +1232,7 @@ function Astral:AddWindow(Configs)
 		    local DescLabel = New("TextLabel", {Parent = ToggleFrame, Position = UDim2.new(0, 10, 0, 24), Size = UDim2.new(0.6, -10, 0, 12), BackgroundTransparency = 1, Text = TDescription, TextColor3 = Theme.Background, Font = Astral.SaveSettings.Font, TextSize = 9, TextXAlignment = "Left"}, {TextColor3 = "Background"})
 		    local Switch = New("Frame", {Parent = ToggleFrame, Position = UDim2.new(1, -10, 0.5, 0), AnchorPoint = Vector2.new(1, 0.5), Size = UDim2.new(0, 35, 0, 20), BackgroundColor3 = Theme.Background, BackgroundTransparency = 0.8}, {BackgroundColor3 = "Background"})
 		    New("UICorner", {Parent = Switch, CornerRadius = UDim.new(1, 0)})
-		    local Ball = New("Frame", {Parent = Switch, Position = Toggled and UDim2.new(1, -17, 0.48, -7.5) or UDim2.new(0, 2, 0.48, -7.5), Size = UDim2.new(0, 15, 0, 15), BackgroundColor3 = Toggled and Theme.Main or Color3.fromRGB(150, 150, 150), ZIndex = 2}, {BackgroundColor3 = "Main"})
+		    local Ball = New("Frame", {Parent = Switch, Position = Toggled and UDim2.new(1, -17, 0.48, -7.5) or UDim2.new(0, 2, 0.48, -7.5), Size = UDim2.new(0, 15, 0, 15), BackgroundColor3 = Toggled and Theme.Main or Theme.Background, ZIndex = 2}, {BackgroundColor3 = "Main"})
 		    New("UICorner", {Parent = Ball, CornerRadius = UDim.new(1, 0)})
 		    local Btn = New("TextButton", {Parent = ToggleFrame, Size = UDim2.new(1, 0, 1, 0), BackgroundTransparency = 1, Text = ""})
 		
