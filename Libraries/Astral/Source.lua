@@ -1106,8 +1106,8 @@ function Astral:Intro(Configs)
 end
 
 function Astral:AddWindow(Configs)
-	local WTitle = Configs[1] or Configs.Title or Configs.Name or "Window"
-	local WSubTitle = Configs[2] or Configs.SubTitle or Configs.Description or ""
+	local WTitle = Configs.Title or Configs.Name or "Window"
+	local WSubTitle = Configs.SubTitle or Configs.Description or ""
 	
 	local MainFrame = self:Draggable(New("ImageLabel", {Parent = Gui, Name = "Window", BackgroundColor3 = Theme.Background, BorderSizePixel = 0, Position = UDim2.new(0, 260, 0, 100), Size = UDim2.new(0, 450, 0, 300), ClipsDescendants = true}, {BackgroundColor3 = "Background"}))
 	New("UICorner", {Parent = MainFrame})
@@ -1135,7 +1135,7 @@ function Astral:AddWindow(Configs)
 
 	local Window = {}
 	function Window:AddTab(Configs)
-		local TTitle = Configs[1] or Configs.Title or "Tab"
+		local TTitle = Configs.Title or Configs.Name or "Tab"
 		
 		local TabBtn = New("TextButton", {Parent = TabList, Size = UDim2.new(1, 0, 0, 25), BackgroundColor3 = Theme.Background2, Text = TTitle, TextColor3 = Theme.Text, Font = Astral.SaveSettings.Font, TextSize = 10}, {BackgroundColor3 = "Background2", TextColor3 = "Text"})
 		New("UICorner", {Parent = TabBtn})
