@@ -1,22 +1,22 @@
-Players = game:GetService("Players")
-UserInputService = game:GetService("UserInputService")
-RunService = game:GetService("RunService")
-TweenService = game:GetService("TweenService")
-CoreGui = game:GetService("CoreGui")
-HttpService = game:GetService("HttpService")
-LocalPlayer = Players.LocalPlayer
+local Players = game:GetService("Players")
+local UserInputService = game:GetService("UserInputService")
+local RunService = game:GetService("RunService")
+local TweenService = game:GetService("TweenService")
+local CoreGui = game:GetService("CoreGui")
+local HttpService = game:GetService("HttpService")
+local LocalPlayer = Players.LocalPlayer
 
-getgenv = getgenv or function() return _G end
-gethui = gethui or function() return CoreGui:FindFirstChild("RobloxGui") or CoreGui end
-getconnections = getconnections or function() return {} end
-consoleprint = consoleprint or function(...) print(...) end
-isrbxactive = isrbxactive or function() return UserInputService:GetFocusedTextBox() ~= nil end
-isgameactive = isgameactive or function() return RunService:IsRunning() end
-assert = assert or function(Value, Erro) if not Value then error(Erro) end end
-getcustomasset = getcustomasset or getsynasset or function(Value) print("Your Executor Does Not Support This Function.", Value) end
-IsMobile = false
+local getgenv = getgenv or function() return _G end
+local gethui = gethui or function() return CoreGui:FindFirstChild("RobloxGui") or CoreGui end
+local getconnections = getconnections or function() return {} end
+local consoleprint = consoleprint or function(...) print(...) end
+local isrbxactive = isrbxactive or function() return UserInputService:GetFocusedTextBox() ~= nil end
+local isgameactive = isgameactive or function() return RunService:IsRunning() end
+local assert = assert or function(Value, Erro) if not Value then error(Erro) end end
+local getcustomasset = getcustomasset or getsynasset or function(Value) print("Your Executor Does Not Support This Function.", Value) end
+local IsMobile = false
 
-Astral = {
+local Astral = {
 	Name = "Astral Library",
 	Version = "1.0",
 	File = "Astral Library/Library Settings.lua",
@@ -840,7 +840,7 @@ Astral = {
 		["zoomin"] = "rbxassetid://10747384552",
 		["zoomout"] = "rbxassetid://10747384679"
 	},
-	SaveSettings = {Theme = "Biscuit Cream", Font = "RobotoCondensed", Animation = true, Transparency = 0.6},
+	SaveSettings = {Theme = "Silver Slate", Font = "RobotoCondensed", Animation = true, Transparency = 0.6},
 	Themes = {
 	    Names = {
 	        "Biscuit Cream",
@@ -1045,7 +1045,7 @@ end
 
 local Theme = Astral:GetTheme()
 
-local Gui = New("ScreenGui", {Parent = gethui(), Name = Astral.Name})
+local Gui = New("ScreenGui", {Parent = LocalPlayer.PlayerGui, Name = Astral.Name})
 local GuiFind = Gui.Parent:FindFirstChild(Gui.Name)
 if GuiFind ~= Gui then
 	GuiFind:Destroy()
@@ -1111,13 +1111,13 @@ function Astral:AddWindow(Configs)
 	
 	local MainFrame = self:Draggable(New("ImageLabel", {Parent = Gui, Name = "Window", BackgroundColor3 = Theme.Background, BorderSizePixel = 0, Position = UDim2.new(0, 260, 0, 100), Size = UDim2.new(0, 450, 0, 300), ClipsDescendants = true}, {BackgroundColor3 = "Background"}))
 	New("UICorner", {Parent = MainFrame})
-	local TopFrame = New("Frame", {Parent = MainFrame, BorderSizePixel = 0, BackgroundTransparency = 1, Name = "Top", Size = UDim2.new(1, 0, 0, 30), ClipsDescendants = true})
+	local TopFrame = New("Frame", {Parent = MainFrame, BorderSizePixel = 0, BackgroundTransparency = 1, Name = "Top", Size = UDim2.new(1, 0, 0.1, 0), ClipsDescendants = true})
 	local WindowTitle = New("TextLabel", {Parent = TopFrame, Name = "Window Title", AutomaticSize = Enum.AutomaticSize.X, BackgroundTransparency = 1, BorderSizePixel = 0, Position = UDim2.new(0, 5, 0, 5), Size = UDim2.new(0, 0, 0, 15), Font = Astral.SaveSettings.Font, RichText = true, Text = WTitle, TextColor3 = Theme.Text, TextScaled = false, TextSize = 10, TextXAlignment = "Left"}, {TextColor3 = "Text"})
 	local WindowSubTitle = New("TextLabel", {Parent = TopFrame, Name = "Window SubTitle", AutomaticSize = Enum.AutomaticSize.X, BackgroundTransparency = 1, BorderSizePixel = 0, Position = UDim2.new(0, WindowTitle.TextBounds.X + 12, 0, 5), Size = UDim2.new(0, 0, 0, 13), Font = Astral.SaveSettings.Font, RichText = true, Text = WSubTitle, TextColor3 = Theme.Text, TextScaled = false, TextSize = 8, TextXAlignment = "Left", TextYAlignment = "Bottom"}, {TextColor3 = "Text"})
 	local SearchBox = New("TextBox", {Parent = TopFrame, Name = "Search", Position = UDim2.new(1, -275, 0, 5), Size = UDim2.new(0, 120, 0, 20), BackgroundTransparency = 1, Text = "", PlaceholderText = "Search...", PlaceholderColor3 = Theme.Text, BorderSizePixel = 0, TextSize = 10, Font = Astral.SaveSettings.Font, TextColor3 = Theme.Text}, {TextColor3 = "Text"})
-	local TabList = New("ScrollingFrame", {Parent = MainFrame, Name = "TabList", BackgroundTransparency = 1, BorderSizePixel = 0, Position = UDim2.new(0, 5, 0, 35), Size = UDim2.new(0, 100, 1, -40), CanvasSize = UDim2.new(0, 0, 0, 0), AutomaticCanvasSize = "Y", ScrollingDirection = "Y", ScrollBarThickness = 3, ScrollBarImageColor3 = Theme.Main, ElasticBehavior = "Never"}, {"ScrollBarImageColor3", "Main"})
+	local TabList = New("ScrollingFrame", {Parent = MainFrame, Name = "TabList", BackgroundTransparency = 1, BorderSizePixel = 0, Position = UDim2.new(0, 5, 0, (TopFrame.AbsoluteSize.Y+5)), Size = UDim2.new(0.2, 0, 1, -(TopFrame.AbsoluteSize.Y+5)), CanvasSize = UDim2.new(0, 0, 0, 0), AutomaticCanvasSize = "Y", ScrollingDirection = "Y", ScrollBarThickness = 3, ScrollBarImageColor3 = Theme.Main, ElasticBehavior = "Never"}, {"ScrollBarImageColor3", "Main"})
 	New("UIListLayout", {Parent = TabList, Padding = UDim.new(0, 5)})
-	local Container = New("Frame", {Parent = MainFrame, Name = "Container", BackgroundTransparency = 1, Position = UDim2.new(0, 110, 0, 35), Size = UDim2.new(1, -115, 1, -40)})
+	local Container = New("Frame", {Parent = MainFrame, Name = "Container", BackgroundTransparency = 1, Position = UDim2.new(0.2, 10, 0, (TopFrame.AbsoluteSize.Y)), Size = UDim2.new(1, -(TabList.AbsoluteSize.X+15), 1, -40)})
 	
 	local Tabs = {}
 	local Elements = {}
@@ -1137,19 +1137,26 @@ function Astral:AddWindow(Configs)
 	function Window:AddTab(Configs)
 		local TTitle = Configs.Title or Configs.Name or "Tab"
 		
-		local TabBtn = New("TextButton", {Parent = TabList, Size = UDim2.new(1, 0, 0, 25), BackgroundColor3 = Theme.Background2, Text = TTitle, TextColor3 = Theme.Text, Font = Astral.SaveSettings.Font, TextSize = 10}, {BackgroundColor3 = "Background2", TextColor3 = "Text"})
+		local TabBtn = New("Frame", {Parent = TabList, Size = UDim2.new(1, 0, 0, 25), BackgroundColor3 = Theme.Background2}, {BackgroundColor3 = "Background2"})
 		New("UICorner", {Parent = TabBtn})
+		local Click = New("TextButton", {Parent = TabBtn, Size = UDim2.new(1, 0, 1, 0), BackgroundTransparency = 1, Text = ""})
+		local SelectBar = New("Frame", {Parent = TabBtn, Name = "SelectBar", Size = UDim2.new(0, 3, 1, 0), BackgroundColor3 = Theme.Main, Visible = false}, {BackgroundColor3 = "Main"})
 		if Configs.Icon then
-		    New("ImageLabel", {Parent = TabBtn, Size = UDim2.new(0, 16, 0, 16), Position = UDim2.new(0, 5, 0.5, -8), BackgroundTransparency = 1, Image = Astral:GetIcon(Configs.Icon), ImageColor3 = Theme.Text}, {ImageColor3 = "Text"})
+		    New("ImageLabel", {Parent = TabBtn, Size = UDim2.new(0, 16, 0, 16), Position = UDim2.new(0, 8, 0.5, -8), BackgroundTransparency = 1, Image = Astral:GetIcon(Configs.Icon), ImageColor3 = Theme.Text}, {ImageColor3 = "Text"})
 		end
-		local TabPage = New("ScrollingFrame", {Parent = Container, Name = TTitle, BorderSizePixel = 0, Size = UDim2.new(1, 0, 1, 0), BackgroundTransparency = 1, Visible = false, CanvasSize = UDim2.new(0, 0, 0, 0), AutomaticCanvasSize = "Y", ScrollBarThickness = 3, ScrollBarImageColor3 = Theme.Main, ScrollingDirection = "Y"}, {ScrollBarImageColor3 = "Main"})
+		local Label = New("TextLabel", {Parent = TabBtn, Size = UDim2.new(1, -30, 1, 0), Position = UDim2.new(0, 30, 0, 0), BackgroundTransparency = 1, Text = TTitle, TextColor3 = Theme.Text, Font = Astral.SaveSettings.Font, TextSize = 10, TextXAlignment = "Left"}, {TextColor3 = "Text"})
+		local TabPage = New("ScrollingFrame", {Parent = Container, Name = TTitle, Size = UDim2.new(1, 0, 1, 0), BackgroundTransparency = 1, Visible = false, AutomaticCanvasSize = "Y", ScrollBarThickness = 3, ScrollBarImageColor3 = Theme.Main, BorderSizePixel = 0, ScrollingDirection = "Y", CanvasSize = UDim2.fromScale(0, 0)}, {ScrollBarImageColor3 = "Main"})
 		New("UIListLayout", {Parent = TabPage, Padding = UDim.new(0, 5)})
 		
-		TabBtn.MouseButton1Click:Connect(function()
+		Click.MouseButton1Click:Connect(function()
 		    for _, v in pairs(Container:GetChildren()) do
 		        if v:IsA("ScrollingFrame") then v.Visible = false end
 		    end
+		    for _, b in pairs(TabList:GetChildren()) do
+		        if b:IsA("Frame") and b:FindFirstChild("SelectBar") then b.SelectBar.Visible = false end
+		    end
 		    TabPage.Visible = true
+		    SelectBar.Visible = true
 		end)
 
 		local Tab = {}
@@ -1774,14 +1781,50 @@ function Astral:AddWindow(Configs)
 		    return {Frame = GithubFrame, Button = CopyBtn}
 		end
 		
+		function Tab:AddGame(Configs)
+		    local GPlace = Configs.Id or Configs.Place or game.PlaceId
+		
+			local GInfo = game:GetService("MarketplaceService"):GetProductInfo(GPlace)
+			local GName = GInfo.Name or "Game"
+			local GDesc = GInfo.Description or "No Description Available"
+			local GCreator = GInfo.Creator.Name or "Astral Inc."
+			local GCreatorType = GInfo.Creator.CreatorType or "Group"
+			local GImage = ("rbxassetid://%d"):format(GInfo.IconImageAssetId) or "rbxassetid://0"
+			
+		    local GameFrame = New("Frame", {Parent = TabPage, Size = UDim2.new(1, -5, 0, 110), BackgroundColor3 = Color3.fromRGB(255, 255, 255), LayoutOrder = #Elements}, {BackgroundColor3 = "Main"})
+		    New("UICorner", {CornerRadius = UDim.new(0, 4), Name = "UICorner", Parent = GameFrame})
+			New("UIGradient", {Color = ColorSequence.new({ColorSequenceKeypoint.new(0, Color3.fromRGB(255,255,0)), ColorSequenceKeypoint.new(0.4000000059604645, Color3.fromRGB(0,0,0)), ColorSequenceKeypoint.new(1, Color3.fromRGB(0,0,0))}), Enabled = true, Name = "UIGradient", Offset = Vector2.new(0, 0.4000000059604645), Parent = GameFrame, Rotation = -45})
+			local GameImage = New("ImageLabel", {Active = true, AnchorPoint = Vector2.new(0, 0), AutoLocalize = false, AutomaticSize = "None", BackgroundColor3 = Color3.fromRGB(255, 255, 255), BackgroundTransparency = 1, BorderSizePixel = 0, ClipsDescendants = true, Draggable = false, Image = GImage, ImageColor3 = Color3.fromRGB(255, 255, 255), ImageTransparency = 0, LayoutOrder = 0, Name = "GameImage", Parent = GameFrame, Position = UDim2.new(0, 5, 0, 5), Rotation = 0, ScaleType = "Crop", Size = UDim2.new(0, 100, 1, -10), Visible = true, ZIndex = 1})
+			New("UICorner", {CornerRadius = UDim.new(0, 8), Name = "UICorner", Parent = GameImage})
+			local GameName = New("TextLabel", {Active = true, AnchorPoint = Vector2.new(0, 0), AutoLocalize = false, AutomaticSize = "None", BackgroundColor3 = Color3.fromRGB(163, 162, 165), BackgroundTransparency = 1, BorderSizePixel = 0, ClipsDescendants = true, Draggable = false, Font = Theme.Font, LayoutOrder = 0, Name = "GameName", Parent = GameFrame, Position = UDim2.new(0, 110, 0, 5), RichText = true, Rotation = 0, Size = UDim2.new(1, -115, 0, 15), Text = GName, TextColor3 = Color3.fromRGB(255, 255, 255), TextDirection = "Auto", TextScaled = true, TextSize = 10, TextTransparency = 0, TextTruncate = "None", TextWrapped = true, TextXAlignment = "Left", TextYAlignment = "Top", Visible = true, ZIndex = 1})
+			local GameDescription = New("TextLabel", {Active = true, AnchorPoint = Vector2.new(0, 0), AutoLocalize = false, AutomaticSize = "None", BackgroundColor3 = Color3.fromRGB(163, 162, 165), BackgroundTransparency = 1, BorderSizePixel = 0, ClipsDescendants = true, Draggable = false, Font = Theme.Font, LayoutOrder = 0, Name = "GameDescription", Parent = GameFrame, Position = UDim2.new(0, 110, 0, 25), RichText = true, Rotation = 0, Size = UDim2.new(1, -115, 0, 55), Text = GDesc, TextColor3 = Color3.fromRGB(255, 255, 255), TextDirection = "Auto", TextScaled = false, TextSize = 6, TextTransparency = 0, TextTruncate = "SplitWord", TextWrapped = true, TextXAlignment = "Left", TextYAlignment = "Top", Visible = true, ZIndex = 1})
+			local GameCreator = New("TextLabel", {Active = true, AnchorPoint = Vector2.new(0, 0), AutoLocalize = false, AutomaticSize = "None", BackgroundColor3 = Color3.fromRGB(163, 162, 165), BackgroundTransparency = 1, BorderSizePixel = 0, ClipsDescendants = true, Draggable = false, Font = Theme.Font, LayoutOrder = 0, Name = "GameCredits", Parent = GameFrame, Position = UDim2.new(0, 110, 0, 80), RichText = true, Rotation = 0, Size = UDim2.new(1, -115, 0, 25), Text = ("By %s: %s"):format(GCreatorType, GCreator), TextColor3 = Color3.fromRGB(255, 255, 255), TextDirection = "Auto", TextScaled = false, TextSize = 7, TextTransparency = 0, TextTruncate = "AtEnd", TextWrapped = true, TextXAlignment = "Left", TextYAlignment = "Center", Visible = true, ZIndex = 1})
+		    table.insert(Elements, {Title = "Data Analysis", Instance = GameFrame})
+		    return {Frame = GameFrame}
+		end
+		
+		function Tab:AddLogger(Configs)
+		    
+			local Logger = {}
+		    local LoggerFrame = New("ScrollingFrame", {Parent = TabPage, Size = UDim2.new(1, -5, 0, 75), BackgroundColor3 = Color3.fromRGB(255, 255, 255), LayoutOrder = #Elements}, {BackgroundColor3 = "Main"})
+		    New("UIListLayout", {Parent = LoggerFrame, Padding = UDim.new(0, 5), VerticalAlignment = "Center"})
+			New("UICorner", {Parent = LoggerFrame})
+			
+			function Logger:NewLog(Text)
+				New("TextLabel", {Parent = LoggerFrame, Position = UDim2.new(0, 0, 0, 0), Size = UDim2.new(1, -10, 0, 15), BackgroundTransparency = 1, TextXAlignment = "Left", TextYAlignment = "Bottom", Font = Astral.SaveSettings.Font, TextSize = 9, TextColor3 = Color3.fromRGB(150, 150, 150), Text = Text})
+			end
+			
+		    table.insert(Elements, {Title = "Logger", Instance = LoggerFrame})
+		    return Logger
+		end
+		function Tab:AddButtonsGrid(Configs)
+			
+		end
 		return Tab
 	end
 	
 	return Window
 end
-
-
-local HttpService = game:GetService("HttpService")
 
 local Interface = {
 	Tab = nil,
