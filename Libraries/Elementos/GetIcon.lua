@@ -1075,8 +1075,8 @@ return function(Value)
 		if Value:match("^rbxassetid://%d+$") then
 			return Value
 		end
-		if self.Icons[Value] then
-			return self.Icons[Value]
+		if Icons[Value] then
+			return Icons[Value]
 		end
 		if Value:find("^https?://") then
 			local Root = "Astral Library"
@@ -1099,5 +1099,4 @@ return function(Value)
 			end
 		end
 	end
-
 end, Icons
