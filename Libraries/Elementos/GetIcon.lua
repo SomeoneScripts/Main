@@ -1099,4 +1099,5 @@ return function(Value)
 			end
 		end
 	end
+
 end, Icons
